@@ -1,0 +1,5 @@
+grupo,n,pos_rate_pred_DP,tpr_EqOpp,fpr,pos_rate_true,calibration_gap,ratio_vs_global,flag
+Call Center,64,0.5625,0.9444,0.0714,0.5625,0.0,1.071,
+WhatsApp,42,0.5238,0.8261,0.1579,0.5476,0.0238,0.998,
+Store,40,0.5,0.9412,0.1739,0.425,0.075,0.952,
+Web,54,0.5,0.9259,0.0741,0.5,0.0,0.952,

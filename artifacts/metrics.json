@@ -1,0 +1,74 @@
+{
+  "results": [
+    {
+      "modelo": "Baseline (most_frequent)",
+      "precision": 0.515,
+      "recall": 1.0,
+      "f1": 0.6798679867986799,
+      "roc_auc": 0.5,
+      "pr_auc": 0.515,
+      "brier": 0.485,
+      "roc_auc_ci95": "[0.500, 0.500]"
+    },
+    {
+      "modelo": "Logistic Regression (balanced + scaler)",
+      "precision": 0.803921568627451,
+      "recall": 0.7961165048543689,
+      "f1": 0.8,
+      "roc_auc": 0.8884996496847163,
+      "pr_auc": 0.8808871815511823,
+      "brier": 0.13538082465226384,
+      "roc_auc_ci95": "[0.843, 0.931]"
+    },
+    {
+      "modelo": "XGBoost (tuned)",
+      "precision": 0.9381443298969072,
+      "recall": 0.883495145631068,
+      "f1": 0.91,
+      "roc_auc": 0.9336402762486238,
+      "pr_auc": 0.9505804933672881,
+      "brier": 0.08170060068368912,
+      "roc_auc_ci95": "[0.894, 0.966]"
+    },
+    {
+      "modelo": "XGBoost LEAKAGE-SAFE (lower bound)",
+      "precision": 0.7128712871287128,
+      "recall": 0.6990291262135923,
+      "f1": 0.7058823529411765,
+      "roc_auc": 0.7504754278850966,
+      "pr_auc": 0.7851436944327677,
+      "brier": 0.21667370200157166,
+      "roc_auc_ci95": "[0.681, 0.816]"
+    }
+  ],
+  "cv_scores": [
+    {
+      "modelo": "Baseline (most_frequent)",
+      "metric": "accuracy",
+      "mean": 0.515,
+      "std": 0.0031
+    },
+    {
+      "modelo": "Logistic Regression (balanced + scaler)",
+      "metric": "roc_auc",
+      "mean": 0.8499,
+      "std": 0.0312
+    },
+    {
+      "modelo": "XGBoost (tuned)",
+      "metric": "roc_auc",
+      "mean": 0.9223,
+      "std": 0.0278
+    }
+  ],
+  "calibration": {
+    "brier_score": 0.08170060068368912
+  },
+  "threshold_cost_optimal": 0.16,
+  "best_hyperparams": {
+    "clf__learning_rate": 0.1,
+    "clf__max_depth": 4,
+    "clf__n_estimators": 400,
+    "clf__subsample": 1.0
+  }
+}

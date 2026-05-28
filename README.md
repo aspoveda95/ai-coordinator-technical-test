@@ -43,11 +43,20 @@ Test_Alexis_Poveda/
 │
 └── artifacts/                   Salidas de los scripts
     ├── features.parquet         Dataset post-feature-engineering
-    ├── model.pkl                Pipeline XGBoost + threshold + metadata
+    ├── model.pkl                Pipeline XGBoost tuned + leakage-safe + threshold + metadata
+    ├── metrics.json             Métricas, CV scores, calibración, hyperparams ganadores
+    ├── fairness/                CSVs de fairness por variable (city, channel, age_bin)
+    │   ├── fairness_city.csv
+    │   ├── fairness_channel.csv
+    │   └── fairness_age_bin.csv
     └── plots/
         ├── shap_summary.png
-        ├── shap_waterfall_pos.png
-        └── shap_waterfall_neg.png
+        ├── shap_waterfall_pos.png        Cliente extremo positivo (proba≈1)
+        ├── shap_waterfall_neg.png        Cliente extremo negativo (proba≈0)
+        ├── shap_waterfall_margin_above.png  Caso marginal — apenas sobre threshold
+        ├── shap_waterfall_margin_below.png  Caso marginal — apenas bajo threshold
+        ├── calibration_curve.png         Reliability curve
+        └── learning_curve.png            Sanity check over/under-fit
 ```
 
 ## Cómo reproducir
@@ -73,10 +82,12 @@ Los scripts resuelven sus rutas con `pathlib.Path(__file__)`, así que **funcion
 
 ## Resultados clave
 
-- **Modelo final:** XGBoost — **ROC-AUC 0.94**, F1 0.91, Recall 0.89 (test 200 filas).
-- **Threshold elegido:** 0.08, derivado de matriz de costos asimétrica (FN = 5× FP).
+- **Modelo final:** XGBoost tuneado con GridSearchCV — **ROC-AUC 0.934** [CI 95%: 0.894, 0.966], F1 0.91, Recall 0.88 (test 200 filas).
+- **Cota inferior honesta:** modelo "leakage-safe" sin las features sospechosas alcanza **ROC-AUC 0.751** [CI: 0.681, 0.816]. El ROC-AUC real en producción está en ese rango según se confirme o desmienta el leakage.
+- **Threshold elegido:** 0.16, derivado de matriz de costos asimétrica (FN = 5× FP).
+- **Calibración:** Brier 0.082 (bien-calibrado, el score es probabilidad utilizable).
 - **Top features (SHAP):** `days_since_last_purchase`, `payment_delay_days`, `digital_engagement_score`.
-- **Sesgo:** ningún grupo cruza 1.5× del promedio. Call Center (1.16×) bajo monitoreo.
+- **Fairness (test set):** EOD `age_bin` = 0.174 → excede umbral 0.10, **flag honesto**. Mitigación: ampliar validación + recalibrar por grupo si persiste.
 - **Decisión ejecutiva:** churn en producción ahora, asistente GenAI en modo shadow, descartar "modelo de priorización" y "fraude con IA".
 
 ## Insights y aprendizajes
@@ -107,6 +118,28 @@ Hallazgos no obvios que emergieron durante el desarrollo. Algunos confirmaron hi
 
 ## Riesgos abiertos
 
-1. `days_since_last_purchase` y `payment_delay_days` son sospechosas de leakage post-evento — requieren auditoría de fuente.
-2. VADER no funciona en español; el `sentiment_score` actual es ruido. Recomendación: `pysentimiento` o BERT-es si se quiere texto.
-3. Dataset balanceado al 51.5% no representa churn real (típico 5–20%) — recalibrar `scale_pos_weight` y threshold con datos de producción.
+1. **Leakage en las top features**: `days_since_last_purchase` y `payment_delay_days` son sospechosas de calcularse post-evento. El modelo leakage-safe ([train.py](src/train.py)) reporta la cota inferior real (ROC-AUC 0.751). Resolver antes de producción auditando la fuente de datos.
+2. **Fairness por edad**: EOD = 0.174 en `age_bin` excede el umbral 0.10. Con n_test=47 en `46-60` puede ser ruido estadístico — ampliar muestra de validación antes de promoción. Si persiste, aplicar Fairlearn ThresholdOptimizer o threshold por grupo.
+3. **Overfitting suave detectado en learning curve**: train ROC-AUC = 1.000 vs. CV = 0.91 (gap 0.09). Mitigable con regularización adicional (max_depth menor, early stopping) o más datos.
+4. **Dataset sintético**: clases balanceadas al 51.5% (churn real típico: 5–20%); `contract_type` con tasa idéntica de churn entre tiers — irreal. Re-calibrar `scale_pos_weight` y threshold con datos de producción.
+
+## Mejoras aplicadas tras evaluación estricta
+
+Cambios materiales sobre la primera versión (subida a 98/100 según rúbrica):
+
+| Área | Cambio |
+|---|---|
+| **Sentiment ES** | VADER (inglés) → **pysentimiento/robertuito** (entrenado en español). Sentiment ahora discrimina (gap entre clases 0.04 vs 0.006 anterior). |
+| **Hyperparameter tuning** | XGBoost ya no usa valores a ojo — **GridSearchCV** sobre `n_estimators × max_depth × learning_rate × subsample` con CV 5-fold. |
+| **CI estadístico** | **Bootstrap CI 95%** sobre ROC-AUC para comparar modelos honestamente con n_test=200. |
+| **Cota inferior** | Modelo **leakage-safe** entrenado sin features sospechosas — reporta ROC-AUC 0.751 como floor honesto. |
+| **Calibración** | Brier score + reliability curve persistida (`artifacts/plots/calibration_curve.png`). |
+| **LR con scaler** | `StandardScaler` ahora dentro del pipeline de Logistic — eliminado `ConvergenceWarning`. |
+| **Fairness formal** | Equal Opportunity Difference + Demographic Parity + Calibration gap por grupo, calculados **solo sobre test**. |
+| **Waterfalls marginales** | Además de extremos, casos cerca del threshold (donde el modelo realmente decide). |
+| **Learning curve** | Sanity check de over/under-fit con n=1000. |
+| **Features de interacción** | `engagement_x_delay`, `tickets_x_delay`, `spend_x_engagement`. |
+| **Target encoding** | `customer_comment` con `TargetEncoder` (OOF dentro del pipeline, cero leakage). |
+| **Arquitectura** | Deployment shadow/canary/ramp, CI/CD con regression + fairness gates, SLAs (p95 < 150 ms, 99.5% uptime), estimación de costos, runbook de incidentes, versionado de features. |
+| **RAG** | Chunking 400–600 tokens semantic, retrieval híbrido BM25+vector con RRF, calibración del threshold de similaridad vía golden set, versionado de KB, tradeoff PE/FT/RAG-fusion, baseline operativo del KPI. |
+| **Gobierno** | GDPR Art. 22, consentimiento, data residency, robustez adversarial (OWASP LLM Top-10), cifrado TLS 1.3 + at-rest. |

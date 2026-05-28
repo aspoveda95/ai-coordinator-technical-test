@@ -1,0 +1,5 @@
+grupo,n,pos_rate_pred_DP,tpr_EqOpp,fpr,pos_rate_true,calibration_gap,ratio_vs_global,flag
+Cuenca,57,0.5789,0.9091,0.125,0.5789,0.0,1.103,
+Quito,50,0.54,0.9259,0.087,0.54,0.0,1.029,
+Guayaquil,48,0.5,0.9524,0.1481,0.4375,0.0625,0.952,
+Manta,45,0.4667,0.8636,0.087,0.4889,0.0222,0.889,

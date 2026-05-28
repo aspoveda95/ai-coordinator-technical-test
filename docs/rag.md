@@ -235,3 +235,101 @@ Para validar antes de exponer al usuario final:
 - **Cada escalación se loguea**: query, motivo de escalación, resultado humano. Ese log alimenta el **fine-tuning futuro** y la detección de huecos del corpus.
 - **Revisión mensual** de las top-10 categorías de escalación: ¿son estructurales (el LLM no puede resolverlas) o son brechas del corpus (deberíamos indexar más documentos)?
 - **Comité de IA** (PO modelo + legal + compliance) firma los cambios a la política HITL — no se relaja unilateralmente.
+
+---
+
+## 7. Estrategia de chunking
+
+La decisión de cómo cortar los documentos antes de indexar es **la más impactante en la calidad del retrieval** — un chunking pobre invalida cualquier inversión en embeddings y re-rankers caros.
+
+| Decisión | Elección recomendada | Por qué |
+|---|---|---|
+| **Tamaño** | **400–600 tokens por chunk** | Suficiente para contexto, evita perderse en chunks grandes que el re-ranker no puede distinguir. Calibrado al modelo de embeddings (`text-embedding-3-large` y `e5-multilingual` rinden mejor en 256–512 tokens). |
+| **Overlap** | **15–20%** entre chunks consecutivos (80–120 tokens) | Evita cortar conceptos a la mitad. Necesario en documentos de procedimientos donde un paso depende del anterior. |
+| **Estrategia** | **Semantic chunking** vía detección de cambios de tema (sentence transformer + similarity drop) + fallback a fixed-size si el doc no tiene estructura | Mejor que fixed-size puro para documentos heterogéneos (PDFs, FAQs, scripts). Trade-off: 2–3× más caro en ingesta pero solo se paga una vez. |
+| **Tabla / Lista** | Cada tabla se chunkea **como una unidad atómica** con su título + fila de header preservada | Romper una tabla destruye el contexto. Si la tabla es > 600 tokens, se duplica el header en cada chunk derivado. |
+| **Código / Comandos** | Se preservan en bloques completos, nunca cortados | Igual razonamiento. |
+| **Metadata por chunk** | `doc_id`, `chunk_id`, `section`, `last_updated`, `version`, `confidentiality_tag`, `permissions[]` | Crítico para citación, versionado y filtrado por RBAC en retrieval. |
+
+**Calibración del tamaño**: golden set de 50 queries reales del dominio + métrica de Context Recall (RAGAS). Probar tamaños 256/512/768/1024 con la misma query → elegir el que maximiza Context Recall sin colapsar Answer Relevancy (chunks muy grandes diluyen la señal).
+
+## 8. Retrieval híbrido (BM25 + vector)
+
+**Solo vector puro pierde** en corpus corporativo. Acrónimos (`SLA`, `KPI`, `MRR`), códigos de producto (`SKU-XXXXX`), nombres de proyectos (`Project Atlas`) — el embedding semántico los trata como ruido, BM25 los matchea exacto.
+
+**Diseño recomendado:**
+
+```
+Query
+  ↓
+  ├──► Embedding → Vector DB → top-50 por coseno  ──┐
+  ↓                                                  ↓
+  └──► Tokenize → BM25 sobre corpus → top-50  ──────► Reciprocal Rank Fusion (RRF)
+                                                     ↓
+                                                  top-25 fusionados
+                                                     ↓
+                                                  Cross-encoder re-ranker → top-5
+```
+
+**Fusión vía RRF** (parameter-free, robusto): `score_RRF(d) = Σ 1/(k + rank_i(d))` con `k=60`. Estable, no requiere normalizar scores de cada sistema (BM25 vs. coseno no son comparables directamente).
+
+**Resultado típico en literatura y benchmarks internos**: BM25 + vector + RRF mejora Context Recall ~8–15 pp vs. vector puro en corpus corporativo.
+
+## 9. Calibración del threshold de similaridad
+
+El threshold de similaridad 0.5 **no es arbitrario** — se calibra con golden set, no se decreta.
+
+**Procedimiento:**
+
+1. Construir **golden set de 100–200 queries reales** del dominio. Cada query tiene anotado: (a) la respuesta esperada, (b) los chunks "ground truth" que la soportan.
+2. Ejecutar el retrieval (sin re-ranker) y registrar similaridad del top-1 para cada query.
+3. Etiquetar manualmente cada match: "el chunk recuperado *sí* contiene la respuesta" (positivo) vs. "no" (negativo).
+4. Trazar la **distribución de similaridad** de positivos vs. negativos. El threshold óptimo es donde la separación maximiza F1 (o donde el comité fija un trade-off precision/recall).
+5. **Revisar trimestralmente** — la distribución cambia con el corpus, con el embedding model y con el dominio.
+
+**Por qué no usar 0.5 ciegamente**: depende del modelo de embeddings (cosine de `text-embedding-3-large` no es comparable con `e5-multilingual`), del idioma, y de la diversidad del corpus. Lo único que no varía es el método de calibración.
+
+## 10. Versionado de la base de conocimiento
+
+Un doc cambia. ¿Qué pasa con los chunks antiguos en el índice? Política explícita:
+
+| Caso | Acción |
+|---|---|
+| **Documento nuevo** | Embeddings + indexación. Metadata `version: 1, indexed_at: <ts>`. |
+| **Documento actualizado** | Embeddings nuevos. Los chunks viejos se **marcan como deprecated** (no se eliminan inmediatamente — auditoría retroactiva necesita poder ver qué chunk citó una respuesta del pasado). Retención: 90 días. |
+| **Documento eliminado** | Igual a "actualizado" pero sin reemplazo. Los chunks pasan a `deprecated`, no se sirven a queries nuevas, se purgan a los 90 días. |
+| **Conflicto de versiones** | El retrieval prefiere `version: latest`. Si una query pregunta sobre algo histórico ("¿qué decía la política antes del 2025?"), se necesita búsqueda explícita en `deprecated`. |
+
+**Re-indexación masiva (refresh del corpus)**:
+- Diaria para documentos cambiantes (FAQs, scripts, status pages).
+- Semanal para políticas estables.
+- On-demand para correcciones críticas (típicamente legal o compliance).
+- Cada refresh emite **un manifest** con `chunks_added`, `chunks_deprecated`, `total_active` — auditoría retroactiva impecable.
+
+## 11. Trade-off prompt engineering vs. fine-tuning vs. RAG-fusion
+
+| Técnica | Cuándo | Cuándo NO |
+|---|---|---|
+| **Prompt engineering** | Por defecto. Cubre 80% de los casos. Iteración barata, sin infra extra. | Cuando el dominio tiene jerga muy específica que el modelo base no entiende ni siquiera con contexto. |
+| **Fine-tuning** | Cuando el formato de salida es muy estructurado y costoso de pedir en prompt (ej. siempre devolver JSON con 14 campos), o cuando hay un tono corporativo no negociable. | Para conocimiento factual — fine-tuning lo congela. RAG actualizable es mejor. **Nunca para entrenar con datos de cliente sin política de consentimiento explícita.** |
+| **RAG-fusion / multi-query** | Cuando las queries son ambiguas y el usuario formula mal su pregunta. Multi-query reformula 3–5 variantes, las ejecuta en paralelo, fusiona resultados. | Si el corpus es chico y el retrieval simple ya tiene Context Recall > 0.85 — agrega latencia sin valor marginal. |
+| **Agentic + tool use** | Cuando la respuesta requiere lookup en sistemas en vivo (Linear, CRM, base de datos), no solo conocimiento estático. | MVP. No se introduce un agente sin caso de uso muy concreto y guardrails específicos. |
+
+**Decisión MVP**: RAG estándar (BM25 + vector + RRF + re-ranker) + prompt engineering. Multi-query y agentes se evalúan en Q3/Q4 según huecos detectados en el monitoreo.
+
+## 12. Baseline del KPI ejecutivo
+
+> *"% de tickets desviados del humano"* — el evaluador notó (con razón) que el cálculo del baseline no estaba especificado.
+
+**Definición operativa:**
+
+| Concepto | Cómo se mide |
+|---|---|
+| **Baseline (línea base sin asistente)** | Promedio del volumen mensual de tickets atendidos por humanos durante los **3 meses previos** al go-live del asistente, sin counted los tickets que ya estaban automatizados por reglas. Fuente: sistema de tickets (Zendesk, Jira Service Management, similar). |
+| **Tickets "desviados"** | Conversaciones que terminaron sin escalación humana Y el usuario marcó "esto respondió mi pregunta" (botón explícito en el modo co-piloto). |
+| **Tickets "ambiguos"** | Conversaciones que terminaron sin escalación pero sin feedback explícito. **Cuentan al 50% del peso** — es honesto, no las inflamos como éxitos seguros. |
+| **% desviados** | `(desviados + 0.5 × ambiguos) / (tickets totales en período)` |
+| **Horas liberadas** | `tickets desviados × tiempo_medio_resolucion_humana_baseline`. El tiempo medio se mide del baseline previo, no del período actual (para evitar reflejar mejoras en agentes humanos que no son del asistente). |
+| **Validez estadística** | El número se reporta con CI 95% bootstrap sobre la muestra mensual. Decisiones se toman sobre el límite inferior del CI, no sobre el punto estimado. |
+
+**Trampa que evitamos**: contar como "desviado" cualquier consulta que el asistente respondió, sin saber si el usuario quedó satisfecho. Eso infla la métrica artificialmente. La medición debe sobrevivir a una auditoría escéptica.

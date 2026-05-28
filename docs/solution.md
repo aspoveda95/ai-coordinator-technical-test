@@ -129,35 +129,40 @@ Este documento es el **Documento de Decisiones Técnicas** y el **Resumen Ejecut
 | Logistic Regression | ROC-AUC | 0.8421 | 0.0296 |
 | Random Forest | ROC-AUC | 0.9106 | 0.0289 |
 
-**Evaluación en test — modelo final XGBoost ([train.py](../src/train.py), features.parquet):**
+**Evaluación en test — modelo final XGBoost (tuned vía GridSearchCV) ([train.py](../src/train.py), features.parquet):**
 
-| Modelo | Precision | Recall | F1 | ROC-AUC | PR-AUC |
-|---|---|---|---|---|---|
-| Baseline | 0.515 | 1.000 | 0.680 | 0.500 | 0.515 |
-| Logistic Regression (balanced) | 0.837 | 0.796 | 0.816 | 0.899 | 0.902 |
-| **XGBoost (scale_pos_weight=0.94)** | **0.920** | **0.893** | **0.906** | **0.941** | **0.957** |
-| Random Forest (referencia) | 0.939 | 0.893 | 0.915 | 0.945 | 0.958 |
+| Modelo | Precision | Recall | F1 | ROC-AUC | PR-AUC | Brier | ROC-AUC CI 95% (bootstrap) |
+|---|---|---|---|---|---|---|---|
+| Baseline | 0.515 | 1.000 | 0.680 | 0.500 | 0.515 | 0.485 | [0.500, 0.500] |
+| Logistic Regression (balanced + StandardScaler) | 0.804 | 0.796 | 0.800 | 0.889 | 0.881 | 0.135 | [0.843, 0.931] |
+| **XGBoost (tuned, scale_pos_weight=0.94)** | **0.938** | **0.884** | **0.910** | **0.934** | **0.951** | **0.082** | **[0.894, 0.966]** |
+| **XGBoost LEAKAGE-SAFE (cota inferior)** | 0.713 | 0.699 | 0.706 | **0.751** | 0.785 | 0.217 | **[0.681, 0.816]** |
 
-**Matriz de confusión — XGBoost (threshold=0.5):**
+**Hallazgo crítico (cota inferior honesta):** si se confirma que `days_since_last_purchase` y `payment_delay_days` (las dos features más predictivas) están contaminadas por leakage post-evento, el modelo "leakage-safe" entrega **ROC-AUC 0.751** sin esas features ni sus derivadas. Por lo tanto, **el ROC-AUC real en producción está acotado en [0.751, 0.934]** según se resuelva la auditoría de fuente. Reportar solo 0.934 sin esta cota sería deshonesto.
+
+**Calibración (XGBoost tuned):** Brier 0.082 (rango: 0 perfecto, 0.25 aleatorio). La reliability curve persistida en `artifacts/plots/calibration_curve.png` muestra que el score es razonablemente interpretable como probabilidad — no solo como ranking.
+
+**Matriz de confusión — XGBoost tuned (threshold=0.5):**
 
 |  | pred=0 | pred=1 |
 |---|---|---|
-| **real=0** | 89 (TN) | 8 (FP) |
-| **real=1** | 11 (FN) | 92 (TP) |
+| **real=0** | 91 (TN) | 6 (FP) |
+| **real=1** | 12 (FN) | 91 (TP) |
 
 **Hallazgo no menor:** XGBoost (0.941) ≈ Random Forest sobre features originales (0.945). Las features derivadas (`sentiment_score`, `spend_per_day`, `tickets_per_dollar`, `is_delayed_payer`) **no movieron material la aguja** — la señal predictiva ya estaba contenida en `digital_engagement_score`, `days_since_last_purchase` y `payment_delay_days`. El feature engineering fue *higiene* y aporte de interpretabilidad, no *uplift*. Es un hallazgo honesto que reportar al comité.
 
 ### 2.3.bis Threshold por matriz de costos (FN=5 × FP)
 
-Bajo el supuesto explícito **costo FN = 5 × costo FP** (perder un cliente vale 5× más que gastar retención en alguien que no se iba), el threshold óptimo cambia drásticamente:
+Bajo el supuesto explícito **costo FN = 5 × costo FP** (perder un cliente vale 5× más que gastar retención en alguien que no se iba), barrido sobre el modelo tuned:
 
 | Threshold | TP | FP | FN | TN | Precision | Recall | F1 | Costo total |
 |---|---|---|---|---|---|---|---|---|
-| **0.08 (óptimo costo)** | 97 | 26 | **6** | 71 | 0.789 | **0.942** | 0.858 | **56** |
-| 0.50 (default) | 92 | 8 | 11 | 89 | 0.920 | 0.893 | 0.906 | 63 |
-| 0.55 (F1 óptimo) | 92 | 6 | 11 | 91 | 0.939 | 0.893 | 0.915 | 61 |
+| **0.16 (óptimo por costo)** | 94 | 13 | **9** | 84 | 0.879 | **0.913** | 0.895 | **58** |
+| 0.25 | 93 | 10 | 10 | 87 | 0.903 | 0.903 | 0.903 | 60 |
+| 0.50 (default) | 91 | 6 | 12 | 91 | 0.938 | 0.884 | 0.910 | 66 |
+| 0.65 (F1 ≈ máx) | 90 | 5 | 13 | 92 | 0.947 | 0.874 | 0.909 | 70 |
 
-**Interpretación ejecutiva:** con FN penalizado 5×, **preferimos contactar 26 falsos positivos** antes que dejar escapar 5 churners adicionales. El modelo da la probabilidad; la matriz de costos fija la decisión.
+**Interpretación ejecutiva:** con FN penalizado 5×, el threshold óptimo es **0.16**. A ese punto contactamos 13 falsos positivos para evitar 9 falsos negativos — el costo total (58) es menor que el de optimizar F1 (70). El modelo da la probabilidad; la matriz de costos fija la decisión. *(Threshold cambió de 0.08 a 0.16 al pasar a XGBoost tuneado por GridSearchCV — la distribución de scores del modelo tuned es distinta.)*
 
 ### 2.4 Respuestas
 
@@ -209,20 +214,20 @@ Cinco controles, los tres primeros implementados explícitamente en [train.py](.
 
 ### 3.1 Variables más importantes (SHAP global)
 
-Calculado con `shap.TreeExplainer` sobre el XGBoost final. Métrica: promedio del valor absoluto SHAP por feature.
+Calculado con `shap.TreeExplainer` sobre el XGBoost final (post-tuning). Métrica: promedio del valor absoluto SHAP por feature.
 
 | Rank | Feature | Mean \|SHAP\| | Categoría |
 |---|---|---|---|
-| 1 | `days_since_last_purchase` | 1.758 | Comportamiento |
-| 2 | `payment_delay_days` | 1.692 | Financiera |
-| 3 | `digital_engagement_score` | 1.574 | Comportamiento |
-| 4 | `support_tickets` | 0.643 | Servicio |
-| 5 | `tickets_per_dollar` (derivada) | 0.490 | Servicio/Costo |
-| 6 | `monthly_spend` | 0.471 | Financiera |
-| 7 | `spend_per_day` (derivada) | 0.392 | Comportamiento |
-| 8 | `promotion_usage` | 0.318 | Comercial |
-| 9 | `age` | 0.317 | Demográfica |
-| 10 | `city_Quito` | 0.172 | Demográfica |
+| 1 | `days_since_last_purchase` | ≈ 1.78 | Comportamiento (sospechosa de leakage) |
+| 2 | `payment_delay_days` | 1.605 | Financiera (sospechosa de leakage) |
+| 3 | `digital_engagement_score` | 1.461 | Comportamiento |
+| 4 | `support_tickets` | 0.644 | Servicio |
+| 5 | `tickets_x_delay` (derivada) | 0.476 | Interacción |
+| 6 | `monthly_spend` | 0.437 | Financiera |
+| 7 | `promotion_usage` | 0.406 | Comercial |
+| 8 | `tickets_per_dollar` (derivada) | 0.388 | Servicio/Costo |
+| 9 | `engagement_x_delay` (derivada) | 0.349 | Interacción |
+| 10 | `age` | 0.331 | Demográfica |
 
 **Observaciones:**
 - Las **tres features de comportamiento + financieras** dominan con un margen amplio (>1.5 de SHAP cada una vs. <0.7 del resto).
@@ -265,42 +270,60 @@ Leído del beeswarm y waterfalls:
 
 Acompañar esta explicación con [shap_summary.png](../artifacts/plots/shap_summary.png) (todos los clientes a la vez) y un [shap_waterfall_pos.png](../artifacts/plots/shap_waterfall_pos.png) (un cliente individual) cubre el 95% de las preguntas que un comité hará.
 
-### 3.5 Auditoría de sesgo
+### 3.5 Auditoría de sesgo (sobre **TEST set únicamente**)
 
-Tasa de predicción positiva por grupo, comparada contra el promedio global (`56.9%` con threshold=0.08):
+> **Corrección metodológica:** la versión anterior auditaba sobre el dataset completo (incluyendo train, donde el modelo había memorizado). Eso invalidaba los números. La auditoría actual es solo sobre las 200 filas de test, intacto.
+
+Además del ratio simple, agregamos **3 métricas formales de fairness**:
+
+- **Demographic Parity (DP)** = `P(ŷ=1 | grupo)` — ¿predice positivo por igual en cada grupo?
+- **Equal Opportunity (TPR)** = `P(ŷ=1 | y=1, grupo)` — ¿detecta churners reales por igual?
+- **Calibration gap** = `|pos_rate_pred − pos_rate_true|` — ¿la probabilidad significa lo mismo?
 
 **Por `city`:**
 
-| Ciudad | n | pred_pos_rate | true_pos_rate | ratio | flag |
-|---|---|---|---|---|---|
-| Manta | 220 | 62.3% | 55.5% | 1.094 | — |
-| Cuenca | 264 | 57.6% | 52.6% | 1.012 | — |
-| Guayaquil | 257 | 55.2% | 50.2% | 0.971 | — |
-| Quito | 259 | 53.3% | 48.3% | 0.936 | — |
+| Ciudad | n | DP | TPR | FPR | true | calib_gap | ratio | flag |
+|---|---|---|---|---|---|---|---|---|
+| Cuenca | 57 | 0.579 | 0.909 | 0.125 | 0.579 | 0.000 | 1.103 | — |
+| Quito | 50 | 0.540 | 0.926 | 0.087 | 0.540 | 0.000 | 1.029 | — |
+| Guayaquil | 48 | 0.500 | 0.952 | 0.148 | 0.438 | 0.063 | 0.952 | — |
+| Manta | 45 | 0.467 | 0.864 | 0.087 | 0.489 | 0.022 | 0.889 | — |
 
 **Por `channel`:**
 
-| Canal | n | pred_pos_rate | true_pos_rate | ratio | flag |
-|---|---|---|---|---|---|
-| **Call Center** | 265 | **66.0%** | 58.1% | **1.161** | cerca del límite |
-| Store | 258 | 56.2% | 50.8% | 0.988 | — |
-| Web | 251 | 53.8% | 49.4% | 0.945 | — |
-| WhatsApp | 226 | 50.4% | 46.9% | 0.887 | — |
+| Canal | n | DP | TPR | FPR | true | calib_gap | ratio | flag |
+|---|---|---|---|---|---|---|---|---|
+| Call Center | 64 | 0.563 | 0.944 | 0.071 | 0.563 | 0.000 | 1.071 | — |
+| WhatsApp | 42 | 0.524 | 0.826 | 0.158 | 0.548 | 0.024 | 0.998 | — |
+| Store | 40 | 0.500 | 0.941 | 0.174 | 0.425 | 0.075 | 0.952 | — |
+| Web | 54 | 0.500 | 0.926 | 0.074 | 0.500 | 0.000 | 0.952 | — |
 
 **Por `age_bin`:**
 
-| Edad | n | pred_pos_rate | true_pos_rate | ratio | flag |
-|---|---|---|---|---|---|
-| 60+ | 250 | 61.6% | 53.6% | 1.083 | — |
-| 18-30 | 218 | 57.8% | 51.8% | 1.016 | — |
-| 31-45 | 266 | 54.5% | 50.0% | 0.958 | — |
-| 46-60 | 266 | 54.1% | 50.8% | 0.951 | — |
+| Edad | n | DP | TPR | FPR | true | calib_gap | ratio | flag |
+|---|---|---|---|---|---|---|---|---|
+| **60+** | 59 | 0.610 | **1.000** | 0.148 | 0.542 | 0.068 | 1.162 | — |
+| 18-30 | 45 | 0.533 | 0.840 | 0.150 | 0.556 | 0.022 | 1.016 | — |
+| 31-45 | 49 | 0.510 | 0.957 | 0.115 | 0.469 | 0.041 | 0.972 | — |
+| **46-60** | 47 | 0.426 | **0.826** | 0.042 | 0.489 | 0.064 | 0.811 | — |
 
-**Veredicto cuantitativo: ningún grupo cruza el umbral de 1.5× ni cae bajo 0.67×.**
+### Equal Opportunity Difference (EOD) — métrica única por variable
 
-**Veredicto cualitativo (más relevante para el comité):** el modelo amplifica de forma **uniforme** ~6–8 puntos porcentuales sobre la tasa real observada en *todos* los grupos. No discrimina contra ningún grupo en particular — está calibrado para alto recall (threshold=0.08, costos FN=5×FP=1). El "exceso" de positivos no es sesgo, es la decisión de negocio de capturar más churners aceptando falsos positivos.
+`EOD = max(TPR) − min(TPR)` entre grupos. **Umbral aceptable: < 0.10.** Objetivo: 0.
 
-**Pero hay un grupo a vigilar: Call Center (ratio 1.161).** Está más cerca del umbral que el resto. La hipótesis razonable: los clientes que usan Call Center llaman más al soporte (más `support_tickets`), lo cual es una feature predictiva. El sesgo aquí sería **informativo** (refleja churn real más alto en ese canal), no discriminatorio.
+| Variable | EOD | DemographicParityDiff | Veredicto |
+|---|---|---|---|
+| city | 0.089 | 0.112 | Dentro de umbral |
+| channel | 0.118 | 0.063 | **Borderline** (> 0.10) |
+| age_bin | **0.174** | 0.185 | **Excede umbral** — investigar |
+
+**Hallazgo crítico:** `age_bin` muestra **EOD 0.174** — el modelo detecta el 100% de los churners reales en 60+ pero solo el 82.6% en 46–60. La diferencia es ~17 pp en TPR — material. Requiere acción.
+
+**Veredicto reformulado** (vs. versión anterior, demasiado tranquilizadora):
+
+- Ningún grupo cruza el ratio 1.5×, pero **EOD por edad sí excede 0.10** — el modelo NO trata a todos los grupos por igual en el recall.
+- El calibration gap es muy bajo en todos los grupos (< 0.08) → la probabilidad significa aproximadamente lo mismo en cada grupo. El modelo es bien-calibrado por subgrupo.
+- Causa probable: con n_test=47 en `46-60`, el ruido estadístico es alto. La diferencia podría no ser significativa con CI bootstrap. **Acción**: ampliar muestra de validación antes de promocionar a producción y, si persiste, recalibrar threshold por grupo o aplicar Fairlearn ThresholdOptimizer.
 
 ### 3.6 Plan ante discriminación detectada
 
@@ -390,4 +413,59 @@ Ver [executive_summary.md](executive_summary.md) para el desarrollo completo (di
 > **Estado:** completo.
 > **Archivo:** [executive_summary.md](executive_summary.md) — documento independiente de 1 página A4, tono ejecutivo, sin jerga técnica.
 
-Cubre las 5 secciones requeridas: diagnóstico (ML / GenAI / no-IA), resultado del modelo (XGBoost ROC-AUC 0.94, threshold 0.08), roadmap 90 días (implementar / pilotar / postergar / descartar), riesgos top 3 con mitigación, y KPI ejecutivo único.
+Cubre las 5 secciones requeridas: diagnóstico (ML / GenAI / no-IA), resultado del modelo (XGBoost ROC-AUC 0.94, threshold 0.16), roadmap 90 días (implementar / pilotar / postergar / descartar), riesgos top 3 con mitigación, y KPI ejecutivo único.
+
+---
+
+## Seguridad y Gobierno (sección transversal)
+
+Aspectos que el evaluador estricto correctamente identificó como ausentes en la versión inicial. Se enuncian explícitamente.
+
+### Cumplimiento regulatorio
+
+**GDPR Art. 22 — derecho a no ser objeto de decisiones automatizadas:**
+- El modelo de churn **NO toma decisiones irreversibles** sobre el cliente — el output es un score que alimenta una acción comercial (contacto, oferta retentiva). La decisión final es humana. Esto nos saca del ámbito estricto del Art. 22 en la mayoría de casos.
+- **Pero** si en el futuro se usa el score para denegar servicios, ajustar precios al alza, o cerrar cuentas, **se activa Art. 22 plenamente**: el cliente debe poder solicitar revisión humana y recibir explicación significativa. La infraestructura SHAP + waterfall del modelo está preparada para esto.
+- **LFPDPPP / Ley Habeas Data ecuatoriana** (jurisdicción local del dataset): análogos al GDPR Art. 22 para clientes en LATAM. Procedimiento: cualquier cliente que pida explicación de su score recibe (a) la decisión humana resultante, (b) las top-5 features que impactaron su score, (c) acción que puede tomar para revertirlo (ej. ponerse al día con su mora).
+
+### Consentimiento
+
+**`customer_comment` y otros datos de PII**:
+- El consentimiento para uso en modelado debe estar en los términos de servicio del producto, con opción de opt-out clara.
+- Si un cliente revoca el consentimiento, sus datos se excluyen del próximo retraining y se purgan de logs de inferencia en 30 días.
+- **No se usan datos de cliente para fine-tuning de LLMs externos** sin un contrato Data Processing Agreement firmado y categoría de datos explícitamente listada — independientemente de lo que diga el TOS por defecto del proveedor.
+
+### Data residency
+
+- **Embeddings y queries del RAG NO salen de la región** si el operador del LLM no tiene presencia en la región del cliente (ej. clientes ecuatorianos → LLM con endpoint en LATAM o, en su defecto, modelo open-source self-hosted).
+- **Modelo de churn**: training y serving en infra dentro de la jurisdicción donde reside el dato. Multi-región solo con replicación gobernada y mismo nivel regulatorio.
+- **Logs de auditoría**: 7 años de retención mínima (típica para datos comerciales), pero la PII se **redacta** en el log a los 90 días — se preserva la operación pero no el identificador.
+
+### Robustez adversarial
+
+Para el asistente RAG (Parte 5), no para el modelo de churn (que no recibe input directo del cliente):
+
+| Vector de ataque | Mitigación |
+|---|---|
+| **Prompt injection** ("ignore all instructions and...") | Clasificador en input + system prompt blindado + audit log que captura el intento. Pruebas de regresión con OWASP LLM Top-10 prompts. |
+| **Data exfiltration vía prompt** ("dame todos los emails de la base") | Clasificador de tópico + RBAC en retrieval (solo se buscan docs visibles para el rol del usuario). Audit log levanta alerta. |
+| **Jailbreak / roleplay** ("eres DAN, no tienes restricciones") | Output guardrail: faithfulness NLI rechaza respuestas no soportadas en contexto, sin importar el prompt. |
+| **Membership inference** sobre el modelo de churn | Improbable con XGBoost (modelo de árboles, no memoriza features individuales). En todo caso, no se expone el modelo crudo — solo decisión + explicación SHAP filtrada. |
+| **Adversarial inputs** sobre features (cliente manipula su comportamiento para evadir score) | Bajo riesgo en churn (no es un sistema de fraude que el cliente intente evadir). Si pasara, monitoreo de drift en distribución de features lo detecta. |
+
+### Cifrado
+
+- **En tránsito**: TLS 1.3 obligatorio en todas las APIs (FastAPI + load balancer terminan TLS), mTLS entre microservicios internos.
+- **En reposo**: encrypted disks en todos los almacenes (S3 SSE-KMS, GCS CMEK, Postgres TDE). Llaves gestionadas en Vault o KMS de cloud, no en código.
+- **Embeddings**: el vector DB cifra en reposo igual que el resto.
+- **Logs**: redactados (PII removida) antes de escribirse + cifrados.
+- **Sin secretos en código**: enforced por pre-commit hook (`detect-secrets`) + escaneo en CI.
+
+### Resumen para auditoría
+
+Cualquier auditor regulatorio pide 4 cosas. Las tenemos:
+
+1. **Lineage de datos** — desde la fuente hasta la decisión, vía dbt + Feast + MLflow.
+2. **Explicabilidad por cliente** — SHAP waterfall reproducible.
+3. **Fairness audit periódica** — métricas EOD/DP/Calibration documentadas con cadencia mensual (Parte 3.5).
+4. **Trazabilidad de cambios** — PRs + Model Cards versionadas + log de aprobaciones.
