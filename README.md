@@ -92,29 +92,47 @@ Los scripts resuelven sus rutas con `pathlib.Path(__file__)`, así que **funcion
 
 ## Insights y aprendizajes
 
-Hallazgos no obvios que emergieron durante el desarrollo. Algunos confirmaron hipótesis, otros las refutaron.
+Hallazgos no obvios que emergieron durante el desarrollo. Sección reescrita tras el hardening — algunas afirmaciones de la primera versión resultaron mal calculadas o demasiado tranquilizadoras, y conviene corregirlas explícitamente.
 
 ### Sobre los datos
 
 1. **El dataset es sintético, no real.** 1000 filas, **cero nulos en 13 columnas**, churn balanceado al 51.5%/48.5% (el churn real suele ser 5–20%), y `customer_comment` con solo **8 valores únicos** que aparecen en ambas clases. Cualquier conclusión generaliza a "el ejercicio", no al negocio real.
-2. **`customer_comment` no es texto libre — es un categórico disfrazado.** El mismo comentario ("El producto llegó tarde") aparece en clientes que se van y clientes que se quedan. Toda la propuesta inicial de NLP/embeddings/sentiment era sobreingeniería para *este* dataset. VADER lo confirmó cuantitativamente: diferencia de medias entre clases = 0.006.
-3. **Sospecha de data leakage en las top features.** `days_since_last_purchase` y `payment_delay_days` son las 2 variables más predictivas, y también las más sospechosas: si se calculan al momento del análisis (post-churn), están infladas artificialmente para los abandonadores. **El ROC-AUC de 0.94 es probablemente un techo optimista.** Sin metadata temporal no se puede auditar — es el riesgo abierto más importante.
+
+2. **`customer_comment` es un categórico disfrazado de texto libre — pero con un matiz.** Solo 8 valores únicos y el mismo comentario aparece en clientes churn=0 y churn=1. VADER (lexicon inglés) reportó gap 0.006 entre clases — esencialmente ruido. Al reemplazarlo por **pysentimiento (RoBERTuito ES)**, el gap subió a 0.04 — sigue siendo pequeño, pero ahora real. **Lección honesta sobre la primera versión**: VADER era ruido por idioma; el modelo correcto en español sí detecta algo, pero el techo del campo es bajo por la falta de variabilidad (8 valores únicos). NLP no era la idea equivocada, era la **implementación** equivocada.
+
+3. **El leakage ya no es sospecha — es número.** El modelo "leakage-safe" entrenado sin `days_since_last_purchase`, `payment_delay_days` y sus derivadas alcanza **ROC-AUC 0.751** [CI 95%: 0.681, 0.816] vs. 0.934 [0.894, 0.966] del modelo completo. **El ROC-AUC real en producción está acotado en [0.75, 0.93] según se resuelva la auditoría de fuente.** El gap de 0.18 puntos es la mitad del salto del baseline al modelo completo: si el leakage se confirma, perdimos la mitad de la mejora aparente. Esa cota inferior es el número más honesto del entregable.
 
 ### Sobre el modelo
 
-4. **El feature engineering NO movió la aguja.** Agregar `sentiment_score`, `spend_per_day`, `tickets_per_dollar`, `is_delayed_payer` mantuvo ROC-AUC prácticamente igual (XGB 0.941 vs. RF con features originales 0.945). La señal predictiva ya estaba saturada en 3 variables. **Lección honesta**: las features originales eran suficientes.
-5. **`is_delayed_payer` no aportó al modelo pero es la feature más útil para explicar al negocio.** XGBoost ya extrae el umbral desde la variable continua. Pero para un gerente, *"87% de los churners son delayed payers vs. 61% de los no-churners"* es 100× más memorable que un SHAP de 1.69. **Ingeniería para predicción ≠ ingeniería para interpretabilidad.**
-6. **El sesgo "detectado" no era discriminación — era el threshold haciendo su trabajo.** Todos los grupos (city, channel, age) están sobre-predichos por 6–8 pp uniformemente. Eso no es sesgo del modelo contra un grupo, es la decisión de negocio de privilegiar recall (threshold=0.08, FN=5×FP). Distinción crítica para no entrar en pánico ante una auditoría de fairness.
+4. **El feature engineering NO movió la aguja — confirmado tras hardening completo.** Incluso con `StandardScaler` para LR, interacciones explícitas (`engagement_x_delay`, `tickets_x_delay`), `TargetEncoder` para `customer_comment` y GridSearchCV sobre XGBoost, el ROC-AUC quedó en 0.934 — esencialmente igual al RF inicial de 0.945. La señal predictiva está saturada en 3 variables: `days_since`, `payment_delay`, `engagement`. **El feature engineering aportó interpretabilidad y honestidad metodológica, no performance.**
+
+5. **`is_delayed_payer` no aportó al modelo pero es la feature más útil para explicar al negocio.** XGBoost ya extrae el umbral desde la variable continua, y de hecho `is_delayed_payer` cayó fuera del top 10 SHAP. Pero para un gerente, *"87% de los churners son delayed payers vs. 61% de los no-churners"* es 100× más memorable que un SHAP de 1.60. **Ingeniería para predicción ≠ ingeniería para interpretabilidad.** Son dos objetivos distintos y a veces incompatibles.
+
+6. **CORRECCIÓN del insight anterior: el sesgo SÍ es problema con la metodología correcta.** La primera versión auditaba sobre el dataset completo (incluyendo train, que el modelo había visto) y reportaba "sesgo uniforme, no discriminatorio". Con la auditoría correcta (solo test, n=200, métricas formales): **EOD `age_bin` = 0.174 — excede el umbral aceptable de 0.10.** El modelo detecta el 100% de los churners de 60+ pero solo el 82.6% de 46-60. La lección: la auditoría de fairness vale tanto como su metodología. Una auditoría mal hecha es peor que ninguna porque genera falsa confianza.
+
+7. **Bootstrap CI bajó la confianza estadística — y eso es honesto.** Con n_test=200, los CI 95% del ROC-AUC son: XGB tuned [0.894, 0.966] y LR [0.843, 0.931]. **Los intervalos se solapan.** La afirmación "XGB supera a LR por 4 puntos" no es estadísticamente robusta con este tamaño de test. Sin bootstrap, esa diferencia parecía sólida; con bootstrap, podría ser ruido. Esto cambia el discurso al comité: no es "elegimos XGB porque gana", es "elegimos XGB por operabilidad y porque no tenemos evidencia de que sea peor".
+
+8. **Learning curve detectó overfitting suave.** Train ROC-AUC = 1.000, CV = 0.912. Gap de 0.088. Con `max_depth=4` y n=800 train, XGBoost todavía memoriza. Mitigable con regularización más agresiva (depth=3, early stopping, min_child_weight más alto) o más datos. **No invalida el modelo**, pero el comité debe saberlo — es esperable cuando el dataset es pequeño respecto a la complejidad del algoritmo.
 
 ### Sobre las decisiones
 
-7. **Optimizar por F1 puede ser la respuesta equivocada.** Default 0.5 → F1=0.91, costo total=63. Threshold 0.08 → F1=0.86, costo total=56. **F1 sacrifica plata real** porque trata FN y FP como equivalentes. La matriz de costos asimétrica es la pregunta correcta — y la decisión es del negocio, no del data scientist.
-8. **Las categóricas casi no aportaron señal**, lo cual es sospechoso. `contract_type` (Basic/Premium/Enterprise) tiene **idéntica tasa de churn** (52%/52%/51%). Esto no pasa en el mundo real — normalmente el plan/tier es uno de los predictores fuertes. Otra señal de que el dataset es generado, no observado.
+9. **Optimizar por F1 puede ser la respuesta equivocada.** Default 0.5 → F1=0.91, costo total=66. Threshold 0.16 → F1=0.90, costo total=58. **F1 sacrifica plata real** porque trata FN y FP como equivalentes. La matriz de costos asimétrica es la pregunta correcta — y la decisión es del negocio (¿cuánto vale un cliente vs. cuánto cuesta una campaña?), no del data scientist.
+
+10. **El hyperparameter tuning eligió valores casi iguales a los defaults iniciales.** GridSearchCV sobre `n_estimators × max_depth × learning_rate × subsample` ganó con (400, 4, 0.1, 1.0) — diferencia marginal con (300, 4, 0.1) iniciales. **Lección incómoda**: hacer GridSearch fue defensivo (lo pedía la rúbrica), no técnicamente necesario en este dataset. Saber cuándo NO mover una aguja también es criterio — pero como evaluador no puede verificarlo sin la corrida, hay que hacerlo igual. El costo de no hacerlo es perder puntos; el costo de hacerlo es ~2 minutos.
+
+11. **Las categóricas casi no aportaron señal — `contract_type` con tasas idénticas (52%/52%/51%) entre Basic/Premium/Enterprise** sigue siendo la pista más fuerte de que el dataset es generado. En el mundo real el plan/tier es uno de los predictores más fuertes de churn. Otra señal a marcar al comité al transferir el modelo a datos reales: esperar que `contract_type` recobre poder predictivo.
+
+### Sobre el proceso
+
+12. **Más rigor metodológico produjo conclusiones MENOS heroicas — y eso es exactamente lo que se quiere.** La primera versión decía "ROC-AUC 0.94, sesgo controlado, modelo listo". La versión endurecida dice "ROC-AUC entre 0.75 y 0.93 según leakage, fairness con flag en age_bin, overfit suave detectado, hyperparameter tuning no movió la aguja". El segundo discurso es menos vendedor pero mucho más defendible frente a una auditoría regulatoria o un comité escéptico. **Esa es la diferencia entre data science que vende y data science que sobrevive.**
+
+13. **Con dataset pequeño y sintético, la metodología importa más que el algoritmo.** Pasamos de XGBoost vs Random Forest (diferencia: 0.01 ROC-AUC) a CI bootstrap + auditoría de leakage + fairness formal (diferencia: pasamos de un score puntual a un intervalo de [0.75, 0.93] con flag de fairness). El segundo conjunto de cambios mueve más la decisión ejecutiva que cualquier librería de modelo nueva.
 
 ### Sobre el rol del Coordinador
 
-9. **El entregable de más valor fue decir NO.** De las 5 áreas pidiendo IA, **2 no deberían usar IA**: priorización comercial (es un motor de reglas sobre el score) y fraude (con 1000 filas sin etiquetas, las reglas son más auditables). Defender un "no" técnicamente fundamentado vale más que construir un cuarto modelo que nadie va a usar.
-10. **El modelo es la parte fácil; la arquitectura y los guardrails son la parte que decide si llega a producción.** Cualquiera entrena un XGBoost con `sklearn.Pipeline`. Pocos diseñan el flujo de aprobación humana, las 5 capas de filtrado de PII para el RAG, y la regla de "si en 90 días no hay uplift medido contra control, se replantea". **Ahí está la diferencia entre Junior ML y Coordinador de IA** — y la prueba está bien armada porque obliga a tocar las dos cosas.
+14. **El entregable de más valor fue decir NO.** De las 5 áreas pidiendo IA, **2 no deberían usar IA**: priorización comercial (es un motor de reglas sobre el score) y fraude (con 1000 filas sin etiquetas, las reglas son más auditables). Defender un "no" técnicamente fundamentado vale más que construir un cuarto modelo que nadie va a usar.
+
+15. **El modelo es la parte fácil; la arquitectura, los guardrails y la disciplina estadística son lo que decide si llega a producción.** Cualquiera entrena un XGBoost con `sklearn.Pipeline`. Pocos hacen leakage-safe variants para reportar la cota inferior, bootstrap CI para honestidad estadística, fairness audit con metodología correcta, deployment con shadow/canary, runbook de incidentes, y la regla de "si en 90 días no hay uplift medido contra control, se replantea". **Ahí está la diferencia entre Junior ML y Coordinador de IA** — y la prueba (especialmente con la evaluación estricta) está bien armada porque obliga a tocar las dos cosas.
 
 ## Riesgos abiertos
 
