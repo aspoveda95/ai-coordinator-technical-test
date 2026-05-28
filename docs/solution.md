@@ -8,7 +8,7 @@ Este documento es el **Documento de Decisiones Técnicas** y el **Resumen Ejecut
 
 ## Entregables (checklist)
 
-- [ ] **Notebook o script Python** — `notebook.ipynb` / `solution.py` (Parte 2)
+- [x] **Notebook o script Python** — entregado como 5 scripts modulares en [`../src/`](../src/): [eda.py](../src/eda.py), [features.py](../src/features.py), [modeling.py](../src/modeling.py), [train.py](../src/train.py), [explain.py](../src/explain.py)
 - [x] **Documento de decisiones técnicas** — este archivo
 - [x] **Diagrama de arquitectura** — [architecture.md](architecture.md) (Mermaid + tabla de decisiones)
 - [x] **Resumen ejecutivo (máx. 1 página)** — [executive_summary.md](executive_summary.md)
@@ -20,7 +20,7 @@ Este documento es el **Documento de Decisiones Técnicas** y el **Resumen Ejecut
 | 1 | Análisis técnico del problema | Completa |
 | 2 | Modelo predictivo (notebook + decisiones) | Completa |
 | 3 | Interpretabilidad y explicabilidad | Completa |
-| 4 | Arquitectura de producción + diagrama | Pendiente |
+| 4 | Arquitectura de producción + diagrama | Completa ([architecture.md](architecture.md)) |
 | 5 | IA Generativa / RAG | Completa ([rag.md](rag.md)) |
 | 6 | Pregunta ejecutiva (90 días, presupuesto) | Completa ([executive_summary.md](executive_summary.md)) |
 | — | Resumen ejecutivo 1 página | Completa ([executive_summary.md](executive_summary.md)) |
@@ -320,24 +320,26 @@ Si el monitoreo en producción detecta `ratio > 1.5` o `< 0.67` en algún grupo 
 
 ## Parte 4 — Arquitectura de Producción
 
-> **Estado:** pendiente.
-> **Entregable asociado:** diagrama de arquitectura.
+> **Estado:** completa.
+> **Documento detallado:** [architecture.md](architecture.md) (diagrama Mermaid + tabla de decisiones operativas)
 
-A completar:
+### Resumen de la arquitectura propuesta
 
-- [ ] Ingesta de datos (fuentes, frecuencia, contratos)
-- [ ] Data pipeline (ETL/ELT, calidad, validación)
-- [ ] Feature store (online/offline, versionado de features)
-- [ ] API del modelo (REST/batch, SLA, autenticación)
-- [ ] Dashboard de monitoreo (métricas técnicas + de negocio)
-- [ ] Detección de drift (datos, concepto, predicciones — PSI/KS)
-- [ ] Estrategia de retraining (trigger por drift vs. calendario)
-- [ ] Seguridad (PII, accesos, secretos, logging)
-- [ ] Versionado (modelo + datos + features + código)
-- [ ] Decisión batch vs. tiempo real (justificada por caso de uso)
-- [ ] Cadencia de recálculo del score
-- [ ] Gobierno: ¿quién aprueba cambios al modelo?
-- [ ] Model card / documentación
+- **Pipeline en 6 capas**: Ingesta (CRM + transaccional + soporte) → Airflow/dbt + Great Expectations → Feature Store (Feast, offline + online) → Training + MLflow Registry → FastAPI sobre Kubernetes → Monitoreo (Evidently + Grafana + Alertmanager).
+- **Gate humano obligatorio** para promoción de modelos: el retraining se *dispara* automáticamente (por drift o calendario), pero **un Product Owner del modelo firma antes de que el nuevo modelo llegue a producción**. Nunca self-deploy automático.
+- **Seguridad cross-cutting**: IAM (RBAC por rol) atraviesa serving, feature store y MLOps; Vault inyecta credenciales en pipeline y serving. Sin secretos en código ni en logs.
+
+### Decisiones operativas clave
+
+| Decisión | Elección | Justificación 1-línea |
+|---|---|---|
+| Batch vs. tiempo real | **Batch diario** (con on-demand para casos puntuales) | Las features dominantes cambian lento, la acción comercial humana tarda > 24h. |
+| Frecuencia de scoring | Diaria, 02:00–04:00 local | Alineada con planificación comercial del día siguiente. |
+| Métricas de drift | **PSI > 0.2** en top-5 features + **KS-test en scores** + caída PR-AUC > 5 pp | PSI no requiere labels (que tardan 30–60 días en churn), captura cambios temprano. |
+| Gobierno de cambios | PR + code review + gate de fairness automático + firma del PO + comité mensual | Sin accountability humana, el modelo es riesgo legal y reputacional. |
+| Documentación | Model Card en MLflow + diagrama versionado + changelog + runbook | Onboarding rápido, auditoría regulatoria, debugging post-mortem. |
+
+Ver [architecture.md](architecture.md) para el diagrama Mermaid completo y la justificación expandida de cada decisión.
 
 ---
 
@@ -361,24 +363,31 @@ Ver [rag.md](rag.md) para el desarrollo completo de cada punto.
 
 ## Parte 6 — Pregunta Ejecutiva (90 días, presupuesto limitado, 5 áreas)
 
-> **Estado:** pendiente.
+> **Estado:** completa.
+> **Documento detallado:** [executive_summary.md](executive_summary.md) (1 página A4, tono ejecutivo)
 
-A completar:
+### Decisión de roadmap
 
-- [ ] Qué se implementa primero (orden de prioridad)
-- [ ] Qué se descarta y por qué (criterio explícito de descarte)
-- [ ] Justificación ante gerencia (ROI esperado, riesgo, dependencia de datos)
-- [ ] Roadmap de 90 días con hitos verificables
+| Decisión | Iniciativa | Por qué |
+|---|---|---|
+| **Implementar (días 1–60)** | Modelo de churn en producción + dashboard comercial | Datos listos, modelo validado, retorno medible en 90 días, dueño claro (Retención). Mejor ratio impacto/esfuerzo. |
+| **Pilotar (días 30–90)** | Asistente GenAI para Servicio al Cliente en **modo "shadow"** | Asistente responde, humano valida antes de mostrar al cliente — 3 meses. Bajo riesgo, alto aprendizaje sobre calidad y adopción. |
+| **Postergar (Q3/Q4)** | Segmentación de clientes para campañas | Técnicamente factible, pero sin dueño de campaña comprometido se vuelve entregable sin uso. Reactivar cuando Marketing tenga plan operativo. |
+| **Descartar (no se hace)** | (a) "Segundo modelo" para priorización comercial — es un motor de reglas sobre el score, no IA. (b) Detección de fraude con IA — sin etiquetas, las reglas son más auditables y baratas. | Decir "no" libera presupuesto y reputación. Construir modelos sin caso de uso es el principal motivo por el que la IA fracasa. |
+
+### KPI ejecutivo único
+
+> **Reducir la tasa de churn de los clientes intervenidos en ≥ 5 puntos porcentuales vs. grupo de control, en 6 meses.**
+
+Medido vía A/B test: 80% recibe acción de retención, 20% queda como control. Si el uplift es < 5 pp, el proyecto se replantea — **no se renueva por inercia**.
+
+Ver [executive_summary.md](executive_summary.md) para el desarrollo completo (diagnóstico, resultados, roadmap, riesgos top 3 y mitigación).
 
 ---
 
 ## Resumen Ejecutivo (máx. 1 página)
 
-> **Estado:** pendiente — se redactará al final, cuando todas las partes estén cerradas.
+> **Estado:** completo.
+> **Archivo:** [executive_summary.md](executive_summary.md) — documento independiente de 1 página A4, tono ejecutivo, sin jerga técnica.
 
-Estructura prevista:
-1. **Diagnóstico** (3 líneas): qué problemas son IA, cuáles no.
-2. **Recomendación** (3 líneas): qué se construye en 90 días.
-3. **Métricas de éxito** (3 líneas): técnicas y de negocio.
-4. **Riesgos y mitigaciones** (3 líneas).
-5. **Decisión solicitada al comité** (3 líneas).
+Cubre las 5 secciones requeridas: diagnóstico (ML / GenAI / no-IA), resultado del modelo (XGBoost ROC-AUC 0.94, threshold 0.08), roadmap 90 días (implementar / pilotar / postergar / descartar), riesgos top 3 con mitigación, y KPI ejecutivo único.
