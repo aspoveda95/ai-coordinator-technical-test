@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.pytest_cache/
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE / editores
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Macos
+.DS_Store
+._*
+
+# Claude Code
+.claude/
+
+# Logs / outputs locales
+*.log
+.cache/
+
+# Si los artefactos del modelo no deben commitearse (descomentar si aplica):
+# artifacts/*.pkl
+# artifacts/*.parquet
+# artifacts/plots/*.png

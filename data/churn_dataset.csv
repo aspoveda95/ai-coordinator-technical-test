@@ -1,0 +1,1001 @@
+customer_id,age,city,monthly_spend,days_since_last_purchase,support_tickets,payment_delay_days,digital_engagement_score,promotion_usage,contract_type,channel,customer_comment,churn
+1,56,Quito,328.75,81,0,15,16.94,0,Premium,WhatsApp,El producto llegó tarde,0
+2,69,Guayaquil,232.88,169,3,34,63.68,1,Basic,Store,Atención rápida y eficiente,1
+3,46,Quito,246.04,12,0,25,97.48,1,Enterprise,Call Center,Muy satisfecho con el soporte,0
+4,32,Guayaquil,303.99,163,3,17,82.56,1,Enterprise,Web,Muy satisfecho con el soporte,0
+5,60,Cuenca,160.18,65,2,28,6.0,1,Basic,Call Center,Problemas frecuentes con la plataforma,0
+6,25,Cuenca,280.59,55,3,22,37.62,1,Premium,Store,Problemas frecuentes con la plataforma,0
+7,38,Manta,263.32,45,2,52,92.56,1,Premium,Web,Problemas frecuentes con la plataforma,0
+8,56,Cuenca,289.4,101,2,13,50.3,0,Premium,Store,Muy satisfecho con el soporte,0
+9,36,Cuenca,273.13,62,3,14,66.21,1,Enterprise,Call Center,No volvería a comprar,0
+10,40,Cuenca,446.42,49,2,48,91.26,0,Premium,WhatsApp,Problemas frecuentes con la plataforma,0
+11,28,Quito,198.98,127,3,32,87.38,0,Enterprise,Store,Buen precio y calidad,1
+12,28,Cuenca,207.52,153,2,24,50.18,1,Premium,Store,El producto llegó tarde,1
+13,41,Cuenca,200.15,23,0,20,43.76,0,Basic,WhatsApp,Excelente experiencia,0
+14,70,Manta,205.56,152,1,16,33.97,1,Basic,Call Center,Muy satisfecho con el soporte,0
+15,53,Cuenca,199.01,38,3,22,71.9,0,Enterprise,Store,Buen precio y calidad,0
+16,57,Cuenca,345.12,28,2,56,28.7,1,Enterprise,Call Center,El producto llegó tarde,1
+17,41,Guayaquil,363.64,21,3,42,24.99,0,Basic,WhatsApp,El producto llegó tarde,0
+18,20,Manta,204.34,107,1,16,35.62,0,Basic,Web,Servicio lento y mala atención,0
+19,39,Manta,183.41,146,2,57,17.72,1,Premium,Store,Atención rápida y eficiente,1
+20,70,Manta,287.71,164,0,13,69.51,0,Basic,Call Center,Buen precio y calidad,0
+21,19,Manta,205.82,99,1,28,61.62,0,Enterprise,WhatsApp,Muy satisfecho con el soporte,1
+22,41,Manta,300.63,173,1,19,48.29,0,Basic,WhatsApp,Problemas frecuentes con la plataforma,0
+23,61,Manta,266.23,119,0,29,39.03,0,Enterprise,Store,No volvería a comprar,1
+24,47,Quito,128.74,73,4,18,90.91,0,Enterprise,Web,Problemas frecuentes con la plataforma,0
+25,55,Cuenca,373.8,122,6,52,2.91,1,Premium,Store,El producto llegó tarde,1
+26,19,Manta,393.67,30,4,38,76.91,0,Premium,Call Center,El producto llegó tarde,1
+27,38,Cuenca,200.98,108,3,55,90.19,0,Premium,WhatsApp,Excelente experiencia,1
+28,50,Cuenca,218.98,98,1,12,44.64,1,Premium,Web,Problemas frecuentes con la plataforma,0
+29,29,Quito,272.87,32,4,17,55.07,1,Basic,Call Center,Atención rápida y eficiente,0
+30,39,Manta,276.76,156,2,22,94.45,1,Premium,Store,Atención rápida y eficiente,1
+31,61,Guayaquil,302.68,172,3,45,21.23,0,Basic,WhatsApp,Servicio lento y mala atención,1
+32,42,Quito,410.82,79,2,32,52.01,0,Premium,Store,Atención rápida y eficiente,0
+33,66,Guayaquil,235.84,41,0,38,47.47,0,Premium,Web,El producto llegó tarde,0
+34,44,Cuenca,186.14,63,2,39,25.84,0,Enterprise,Web,El producto llegó tarde,1
+35,59,Cuenca,139.65,23,2,17,81.86,1,Basic,Web,Atención rápida y eficiente,0
+36,45,Quito,191.53,104,3,8,89.96,1,Enterprise,Web,No volvería a comprar,0
+37,33,Quito,247.35,75,1,32,78.19,0,Premium,Web,No volvería a comprar,0
+38,32,Guayaquil,393.56,48,0,31,19.54,0,Basic,Store,Atención rápida y eficiente,1
+39,64,Manta,208.59,160,1,53,8.67,0,Premium,Web,Excelente experiencia,1
+40,68,Guayaquil,267.9,57,3,16,60.54,0,Enterprise,Web,Buen precio y calidad,0
+41,61,Quito,248.69,118,1,18,5.71,1,Basic,WhatsApp,Excelente experiencia,1
+42,72,Guayaquil,345.07,100,1,26,67.28,1,Enterprise,Web,Excelente experiencia,1
+43,69,Quito,452.15,124,2,5,53.04,0,Premium,WhatsApp,Atención rápida y eficiente,0
+44,74,Guayaquil,207.53,161,5,34,66.28,1,Premium,WhatsApp,No volvería a comprar,0
+45,20,Quito,210.84,152,4,55,59.02,0,Premium,WhatsApp,Problemas frecuentes con la plataforma,1
+46,54,Quito,333.53,167,2,36,42.27,0,Basic,Store,Problemas frecuentes con la plataforma,1
+47,68,Quito,304.55,34,2,33,20.09,1,Enterprise,Store,Atención rápida y eficiente,1
+48,24,Manta,397.74,156,5,19,30.57,0,Enterprise,Call Center,Problemas frecuentes con la plataforma,1
+49,38,Guayaquil,296.71,165,1,24,52.45,1,Premium,Call Center,Buen precio y calidad,1
+50,26,Guayaquil,221.26,7,2,3,65.19,0,Enterprise,WhatsApp,No volvería a comprar,0
+51,56,Guayaquil,297.25,165,1,9,77.95,1,Basic,Store,Atención rápida y eficiente,0
+52,35,Quito,338.7,56,3,9,76.72,0,Premium,Web,Servicio lento y mala atención,0
+53,21,Guayaquil,315.64,65,0,23,97.27,1,Premium,Call Center,Muy satisfecho con el soporte,0
+54,42,Guayaquil,290.58,47,0,20,28.58,0,Premium,Store,Muy satisfecho con el soporte,0
+55,31,Quito,335.33,148,2,10,7.11,0,Basic,Web,Atención rápida y eficiente,1
+56,67,Cuenca,343.54,19,1,26,34.57,1,Premium,Web,Atención rápida y eficiente,0
+57,26,Quito,360.57,157,1,15,74.33,0,Premium,Store,Servicio lento y mala atención,0
+58,43,Guayaquil,301.9,146,2,25,43.81,1,Premium,Call Center,Problemas frecuentes con la plataforma,1
+59,70,Quito,236.63,163,1,29,81.78,1,Premium,Store,Muy satisfecho con el soporte,1
+60,19,Cuenca,261.74,171,2,48,54.93,0,Enterprise,Call Center,Buen precio y calidad,1
+61,37,Quito,346.52,126,2,15,92.98,0,Premium,WhatsApp,Atención rápida y eficiente,0
+62,45,Guayaquil,184.65,139,3,6,94.79,0,Basic,Store,No volvería a comprar,0
+63,64,Cuenca,279.49,49,3,15,6.93,0,Premium,Store,Muy satisfecho con el soporte,0
+64,24,Manta,218.53,113,1,34,45.64,1,Premium,Call Center,Buen precio y calidad,1
+65,61,Guayaquil,252.3,38,1,57,60.97,0,Enterprise,Call Center,No volvería a comprar,0
+66,25,Cuenca,352.28,64,1,15,25.59,0,Premium,Store,Atención rápida y eficiente,0
+67,64,Cuenca,265.29,69,2,39,40.71,0,Enterprise,Web,Buen precio y calidad,0
+68,52,Manta,253.71,136,2,11,67.77,1,Basic,Web,Servicio lento y mala atención,0
+69,31,Quito,141.21,162,1,34,22.67,0,Enterprise,Web,Atención rápida y eficiente,1
+70,34,Quito,309.7,176,1,48,60.2,1,Premium,WhatsApp,Excelente experiencia,0
+71,53,Guayaquil,301.64,116,3,20,69.74,0,Basic,WhatsApp,Servicio lento y mala atención,0
+72,67,Manta,423.06,65,1,49,9.05,1,Premium,Call Center,Muy satisfecho con el soporte,1
+73,57,Quito,225.38,31,5,42,49.75,0,Enterprise,WhatsApp,No volvería a comprar,0
+74,21,Manta,267.53,132,2,35,26.31,0,Basic,Web,Buen precio y calidad,1
+75,19,Quito,269.95,113,3,47,72.44,1,Basic,Store,Muy satisfecho con el soporte,1
+76,23,Cuenca,376.2,109,0,16,18.96,0,Enterprise,WhatsApp,Muy satisfecho con el soporte,1
+77,71,Quito,242.38,178,3,31,89.22,0,Enterprise,WhatsApp,Atención rápida y eficiente,1
+78,59,Manta,272.32,69,0,40,43.09,0,Basic,Web,Excelente experiencia,0
+79,21,Cuenca,298.63,158,4,5,19.8,1,Basic,WhatsApp,Problemas frecuentes con la plataforma,1
+80,71,Cuenca,264.93,120,1,23,43.8,0,Enterprise,Call Center,Muy satisfecho con el soporte,1
+81,46,Cuenca,214.29,88,2,26,40.87,1,Premium,Store,Excelente experiencia,0
+82,35,Manta,265.53,67,3,19,42.89,1,Basic,Web,No volvería a comprar,0
+83,43,Guayaquil,335.89,75,1,24,58.56,1,Enterprise,Call Center,No volvería a comprar,0
+84,61,Guayaquil,167.88,45,0,1,52.12,0,Premium,Web,Buen precio y calidad,0
+85,51,Guayaquil,260.64,4,2,8,14.98,1,Basic,Call Center,Problemas frecuentes con la plataforma,0
+86,27,Manta,193.99,154,2,27,6.56,1,Basic,Store,Excelente experiencia,1
+87,53,Cuenca,345.6,155,2,52,72.94,0,Enterprise,Store,Servicio lento y mala atención,1
+88,31,Guayaquil,128.15,174,0,37,55.97,1,Premium,Call Center,No volvería a comprar,1
+89,48,Manta,205.29,107,3,2,35.9,1,Basic,Call Center,Atención rápida y eficiente,1
+90,65,Guayaquil,280.18,51,5,19,80.84,0,Premium,Call Center,Problemas frecuentes con la plataforma,0
+91,32,Quito,375.24,50,1,5,38.81,0,Premium,Call Center,Buen precio y calidad,1
+92,25,Guayaquil,244.74,6,2,38,79.6,1,Basic,Call Center,Servicio lento y mala atención,0
+93,31,Guayaquil,205.58,59,2,32,30.58,0,Premium,Call Center,No volvería a comprar,1
+94,40,Cuenca,400.49,125,6,54,7.28,0,Basic,Store,No volvería a comprar,1
+95,74,Manta,134.16,143,1,0,93.26,0,Premium,Call Center,Buen precio y calidad,0
+96,57,Cuenca,74.1,30,2,36,39.46,1,Basic,WhatsApp,Buen precio y calidad,1
+97,38,Cuenca,285.2,170,1,5,79.27,1,Enterprise,Store,El producto llegó tarde,0
+98,33,Cuenca,209.84,122,1,44,27.91,0,Basic,Web,Atención rápida y eficiente,1
+99,62,Cuenca,168.3,125,2,33,64.64,1,Basic,Store,Muy satisfecho con el soporte,1
+100,35,Cuenca,306.67,37,0,46,87.33,0,Basic,Web,Muy satisfecho con el soporte,1
+101,64,Guayaquil,269.5,170,4,14,4.16,0,Premium,Web,Servicio lento y mala atención,1
+102,70,Cuenca,204.87,124,2,44,83.06,0,Enterprise,WhatsApp,Muy satisfecho con el soporte,1
+103,41,Cuenca,147.58,101,3,25,57.13,0,Premium,Call Center,Servicio lento y mala atención,1
+104,43,Manta,319.8,35,1,56,60.75,0,Premium,Call Center,Problemas frecuentes con la plataforma,0
+105,42,Quito,302.02,87,1,13,52.32,1,Basic,Store,No volvería a comprar,0
+106,62,Guayaquil,242.07,134,3,57,87.45,1,Premium,Call Center,El producto llegó tarde,1
+107,58,Guayaquil,397.73,18,2,53,4.34,1,Basic,WhatsApp,El producto llegó tarde,1
+108,46,Guayaquil,164.39,113,2,6,26.1,1,Enterprise,Store,Atención rápida y eficiente,1
+109,32,Cuenca,127.96,29,0,45,87.58,0,Premium,Store,Atención rápida y eficiente,0
+110,62,Cuenca,194.65,77,1,57,75.23,0,Premium,Store,No volvería a comprar,0
+111,18,Cuenca,246.35,59,2,30,1.76,1,Premium,Call Center,Buen precio y calidad,1
+112,42,Manta,269.47,175,0,23,51.7,1,Basic,Call Center,Atención rápida y eficiente,1
+113,24,Quito,230.7,126,4,58,52.96,0,Basic,Call Center,Atención rápida y eficiente,1
+114,26,Cuenca,278.16,145,5,30,40.09,0,Premium,Store,Excelente experiencia,1
+115,41,Quito,149.88,109,0,28,29.74,0,Premium,Store,Excelente experiencia,1
+116,18,Manta,365.5,22,0,41,68.17,1,Enterprise,Web,Muy satisfecho con el soporte,0
+117,61,Guayaquil,243.43,68,6,31,20.78,0,Enterprise,Web,Buen precio y calidad,1
+118,25,Cuenca,339.38,69,0,16,79.89,0,Enterprise,Call Center,Servicio lento y mala atención,1
+119,41,Quito,277.42,165,1,13,80.3,1,Enterprise,Store,Problemas frecuentes con la plataforma,0
+120,28,Quito,286.54,49,0,39,41.53,1,Enterprise,Call Center,El producto llegó tarde,0
+121,68,Cuenca,295.58,141,3,35,28.35,1,Basic,Call Center,Muy satisfecho con el soporte,1
+122,34,Guayaquil,285.82,162,2,57,28.39,0,Enterprise,Web,Atención rápida y eficiente,1
+123,25,Guayaquil,301.42,109,3,47,48.23,0,Enterprise,WhatsApp,No volvería a comprar,1
+124,52,Guayaquil,356.33,86,5,23,71.96,1,Premium,Call Center,Buen precio y calidad,1
+125,52,Manta,265.72,53,5,44,35.89,0,Basic,WhatsApp,Atención rápida y eficiente,1
+126,50,Quito,306.72,123,2,53,61.0,0,Enterprise,WhatsApp,El producto llegó tarde,0
+127,22,Quito,242.82,87,3,26,38.25,0,Enterprise,Store,Servicio lento y mala atención,1
+128,59,Quito,365.21,179,6,24,30.45,1,Enterprise,Store,Servicio lento y mala atención,1
+129,56,Manta,195.89,131,3,58,2.49,1,Premium,Call Center,Excelente experiencia,0
+130,58,Quito,394.08,42,2,31,0.39,0,Premium,Web,Muy satisfecho con el soporte,1
+131,45,Manta,246.79,98,3,51,22.72,0,Premium,Web,Atención rápida y eficiente,1
+132,24,Guayaquil,135.54,160,1,17,40.64,0,Enterprise,Call Center,No volvería a comprar,0
+133,26,Cuenca,260.25,109,1,45,85.13,0,Premium,Call Center,El producto llegó tarde,1
+134,25,Quito,195.52,51,4,17,79.85,1,Enterprise,Web,Atención rápida y eficiente,0
+135,29,Quito,317.25,85,0,36,26.72,1,Basic,WhatsApp,Problemas frecuentes con la plataforma,1
+136,51,Guayaquil,197.79,174,6,25,24.45,0,Enterprise,Call Center,Servicio lento y mala atención,1
+137,50,Cuenca,214.31,127,2,8,22.73,0,Premium,WhatsApp,Atención rápida y eficiente,1
+138,65,Manta,98.84,21,3,59,33.92,1,Basic,Call Center,El producto llegó tarde,1
+139,72,Cuenca,213.82,44,2,34,49.82,0,Enterprise,Call Center,No volvería a comprar,0
+140,40,Guayaquil,56.09,139,0,7,43.87,1,Basic,WhatsApp,El producto llegó tarde,0
+141,41,Guayaquil,123.29,103,1,19,21.83,0,Basic,WhatsApp,Muy satisfecho con el soporte,1
+142,54,Cuenca,310.83,68,4,53,13.05,1,Basic,Web,Excelente experiencia,1
+143,52,Manta,312.86,129,3,41,1.26,0,Enterprise,Call Center,El producto llegó tarde,1
+144,61,Manta,284.04,92,3,21,15.4,0,Premium,Store,Buen precio y calidad,0
+145,57,Quito,172.64,24,5,18,70.54,1,Enterprise,Store,Atención rápida y eficiente,0
+146,39,Manta,246.18,125,1,29,24.36,1,Premium,Call Center,Excelente experiencia,1
+147,44,Cuenca,249.71,141,4,52,46.86,0,Enterprise,Call Center,No volvería a comprar,1
+148,52,Guayaquil,157.33,111,1,27,59.13,0,Enterprise,Call Center,Excelente experiencia,1
+149,18,Quito,370.27,98,1,34,88.68,1,Enterprise,WhatsApp,El producto llegó tarde,1
+150,52,Quito,320.19,139,1,42,88.89,1,Premium,Store,El producto llegó tarde,1
+151,54,Guayaquil,232.32,179,0,10,74.57,0,Enterprise,Store,Buen precio y calidad,0
+152,64,Manta,252.15,17,1,30,3.52,0,Basic,Store,Servicio lento y mala atención,1
+153,31,Guayaquil,266.67,99,4,48,57.51,1,Enterprise,Call Center,Atención rápida y eficiente,1
+154,20,Manta,86.66,82,2,47,78.66,1,Basic,WhatsApp,Buen precio y calidad,1
+155,18,Guayaquil,230.23,104,1,38,1.73,1,Premium,Call Center,El producto llegó tarde,1
+156,22,Cuenca,195.44,152,1,35,54.97,1,Premium,Web,Problemas frecuentes con la plataforma,0
+157,43,Manta,169.87,19,1,29,85.78,1,Enterprise,Web,Excelente experiencia,0
+158,72,Cuenca,227.51,165,2,22,47.41,0,Enterprise,Store,Buen precio y calidad,1
+159,31,Quito,393.81,85,2,18,0.41,0,Enterprise,Call Center,Buen precio y calidad,0
+160,56,Guayaquil,301.27,8,0,11,1.1,1,Basic,Web,Atención rápida y eficiente,0
+161,44,Quito,204.31,28,2,14,41.66,0,Premium,Web,Problemas frecuentes con la plataforma,0
+162,26,Quito,295.81,5,1,30,15.5,0,Basic,Call Center,Problemas frecuentes con la plataforma,1
+163,32,Quito,361.95,145,2,42,66.45,1,Basic,WhatsApp,Problemas frecuentes con la plataforma,1
+164,32,Quito,323.97,101,2,36,70.88,0,Enterprise,Call Center,Atención rápida y eficiente,1
+165,43,Guayaquil,254.77,164,0,36,17.79,0,Enterprise,Call Center,Servicio lento y mala atención,1
+166,59,Quito,198.25,118,2,14,88.85,0,Basic,WhatsApp,El producto llegó tarde,0
+167,30,Guayaquil,305.86,147,0,28,44.19,1,Basic,Store,El producto llegó tarde,1
+168,68,Guayaquil,281.48,64,3,49,14.28,1,Enterprise,Store,No volvería a comprar,1
+169,49,Cuenca,321.62,91,4,42,76.43,0,Enterprise,Store,Atención rápida y eficiente,1
+170,56,Manta,300.81,117,4,25,79.0,0,Basic,WhatsApp,Servicio lento y mala atención,1
+171,66,Manta,333.96,98,3,43,63.93,0,Enterprise,Web,No volvería a comprar,1
+172,69,Guayaquil,207.18,11,3,1,85.35,0,Enterprise,WhatsApp,No volvería a comprar,0
+173,49,Cuenca,355.39,54,2,19,73.74,0,Basic,Call Center,No volvería a comprar,0
+174,21,Guayaquil,265.81,173,0,14,88.22,0,Basic,WhatsApp,Atención rápida y eficiente,0
+175,47,Guayaquil,416.02,47,2,51,43.39,1,Premium,Web,Muy satisfecho con el soporte,0
+176,54,Guayaquil,194.86,140,3,3,74.76,0,Basic,Web,No volvería a comprar,1
+177,40,Cuenca,388.88,149,1,21,99.98,0,Enterprise,Call Center,Buen precio y calidad,1
+178,56,Manta,265.83,139,2,49,72.49,1,Basic,Store,Excelente experiencia,1
+179,62,Cuenca,197.89,5,1,37,11.42,0,Basic,Web,Buen precio y calidad,1
+180,32,Quito,211.29,20,1,22,51.83,0,Basic,Web,Buen precio y calidad,0
+181,60,Cuenca,224.37,169,2,58,58.73,0,Premium,Web,El producto llegó tarde,1
+182,46,Cuenca,283.93,46,3,25,17.42,0,Premium,Call Center,Muy satisfecho con el soporte,1
+183,53,Cuenca,291.83,12,2,50,96.29,1,Enterprise,Web,Atención rápida y eficiente,0
+184,30,Cuenca,204.1,70,0,10,17.56,0,Premium,Store,No volvería a comprar,0
+185,49,Manta,248.05,17,3,27,17.76,1,Basic,Call Center,El producto llegó tarde,1
+186,24,Quito,421.38,115,2,55,91.52,0,Premium,Store,Servicio lento y mala atención,1
+187,68,Manta,388.2,147,2,1,46.52,0,Basic,Web,Servicio lento y mala atención,1
+188,39,Manta,284.91,154,0,58,6.32,1,Premium,Web,Atención rápida y eficiente,0
+189,45,Cuenca,253.04,48,4,7,59.82,0,Premium,Store,El producto llegó tarde,0
+190,19,Guayaquil,259.6,108,2,28,60.18,1,Premium,Call Center,Excelente experiencia,1
+191,59,Guayaquil,299.08,52,2,10,6.45,1,Basic,Call Center,Atención rápida y eficiente,0
+192,62,Manta,168.18,96,1,36,97.25,1,Premium,Store,El producto llegó tarde,0
+193,74,Manta,229.41,70,2,17,54.4,0,Basic,Web,El producto llegó tarde,1
+194,70,Cuenca,116.51,102,2,54,55.98,0,Basic,WhatsApp,Muy satisfecho con el soporte,1
+195,23,Manta,281.94,75,2,49,52.01,0,Enterprise,Store,Atención rápida y eficiente,0
+196,45,Cuenca,301.78,161,4,13,61.07,0,Premium,Store,Servicio lento y mala atención,1
+197,45,Guayaquil,211.35,151,0,53,26.43,1,Enterprise,Store,Servicio lento y mala atención,1
+198,61,Guayaquil,375.92,143,1,9,28.72,0,Enterprise,Web,No volvería a comprar,1
+199,61,Quito,151.94,155,4,34,51.13,0,Basic,Call Center,Buen precio y calidad,1
+200,37,Guayaquil,132.85,179,0,8,80.67,1,Premium,Web,Atención rápida y eficiente,0
+201,47,Manta,267.96,82,0,34,4.99,1,Basic,Store,El producto llegó tarde,1
+202,28,Guayaquil,333.77,92,3,10,60.34,0,Basic,Web,Atención rápida y eficiente,0
+203,72,Cuenca,384.71,179,0,43,80.68,1,Premium,Web,El producto llegó tarde,1
+204,45,Guayaquil,213.29,175,1,11,15.69,1,Basic,Store,Excelente experiencia,1
+205,42,Quito,336.29,4,0,2,1.5,1,Premium,Web,Atención rápida y eficiente,0
+206,56,Guayaquil,246.92,135,1,52,31.27,1,Premium,WhatsApp,Problemas frecuentes con la plataforma,1
+207,50,Cuenca,236.19,109,2,38,58.81,1,Basic,Web,Problemas frecuentes con la plataforma,1
+208,18,Cuenca,320.69,163,2,13,13.83,0,Basic,Web,Servicio lento y mala atención,1
+209,74,Manta,302.19,48,1,55,42.61,0,Enterprise,Call Center,Excelente experiencia,0
+210,44,Guayaquil,123.89,73,2,27,55.23,0,Basic,Call Center,Muy satisfecho con el soporte,0
+211,74,Cuenca,368.12,72,3,10,59.89,0,Premium,Store,No volvería a comprar,1
+212,69,Quito,360.41,116,0,38,27.44,0,Enterprise,Store,Excelente experiencia,1
+213,30,Manta,199.95,173,3,24,40.0,0,Premium,Call Center,Servicio lento y mala atención,1
+214,58,Quito,281.66,81,1,20,77.83,0,Enterprise,WhatsApp,Muy satisfecho con el soporte,0
+215,20,Guayaquil,289.52,81,4,9,94.12,1,Basic,Web,El producto llegó tarde,0
+216,56,Guayaquil,270.85,113,5,42,86.19,0,Basic,WhatsApp,Muy satisfecho con el soporte,1
+217,23,Guayaquil,205.98,96,1,14,56.43,0,Basic,WhatsApp,Buen precio y calidad,0
+218,25,Manta,196.27,72,1,18,41.03,0,Premium,Call Center,Atención rápida y eficiente,0
+219,44,Cuenca,247.96,147,4,47,33.3,1,Enterprise,Store,Excelente experiencia,1
+220,26,Manta,343.82,63,1,21,12.5,0,Premium,Web,Servicio lento y mala atención,1
+221,54,Quito,293.49,38,1,20,10.66,0,Enterprise,Store,Excelente experiencia,0
+222,50,Manta,220.35,67,3,59,68.84,1,Basic,WhatsApp,El producto llegó tarde,0
+223,68,Quito,311.74,69,2,51,25.98,0,Premium,WhatsApp,Problemas frecuentes con la plataforma,1
+224,59,Manta,22.12,13,0,43,25.47,0,Basic,Store,El producto llegó tarde,1
+225,61,Cuenca,341.9,175,1,31,99.82,1,Premium,Store,Servicio lento y mala atención,1
+226,41,Quito,110.82,31,2,49,18.79,0,Basic,Call Center,Buen precio y calidad,1
+227,32,Guayaquil,221.0,114,1,22,14.81,1,Premium,Store,No volvería a comprar,1
+228,71,Guayaquil,160.43,22,4,12,9.87,0,Premium,Store,Atención rápida y eficiente,1
+229,49,Manta,146.43,93,3,4,57.98,0,Enterprise,Call Center,Atención rápida y eficiente,0
+230,49,Guayaquil,342.87,171,0,3,62.79,0,Basic,Store,Muy satisfecho con el soporte,0
+231,41,Quito,212.58,67,2,27,36.52,1,Enterprise,WhatsApp,Muy satisfecho con el soporte,0
+232,58,Guayaquil,277.72,54,4,13,53.54,1,Enterprise,Store,El producto llegó tarde,0
+233,69,Cuenca,246.25,138,2,7,78.84,1,Basic,Web,Excelente experiencia,0
+234,66,Cuenca,288.16,42,1,8,81.81,0,Premium,WhatsApp,Problemas frecuentes con la plataforma,0
+235,66,Manta,256.15,64,2,56,95.79,0,Enterprise,Call Center,Excelente experiencia,0
+236,69,Quito,147.36,126,2,50,82.43,1,Basic,WhatsApp,Buen precio y calidad,1
+237,29,Cuenca,329.7,21,2,34,56.48,1,Premium,Call Center,No volvería a comprar,1
+238,56,Cuenca,210.5,169,1,36,17.97,0,Enterprise,Web,Atención rápida y eficiente,1
+239,19,Quito,125.47,152,0,20,9.98,0,Enterprise,Web,Excelente experiencia,1
+240,20,Guayaquil,215.75,35,3,57,5.45,0,Enterprise,WhatsApp,Atención rápida y eficiente,1
+241,66,Guayaquil,370.06,30,6,17,66.65,0,Premium,Store,Muy satisfecho con el soporte,0
+242,54,Manta,318.02,57,1,32,80.75,1,Enterprise,WhatsApp,Atención rápida y eficiente,0
+243,66,Guayaquil,222.11,47,2,7,50.87,0,Premium,WhatsApp,Problemas frecuentes con la plataforma,0
+244,73,Quito,222.06,163,2,50,5.47,0,Enterprise,Web,Atención rápida y eficiente,1
+245,34,Cuenca,224.27,19,2,48,53.55,0,Basic,Call Center,Excelente experiencia,0
+246,66,Guayaquil,416.14,114,2,16,93.57,0,Enterprise,WhatsApp,Problemas frecuentes con la plataforma,0
+247,19,Manta,280.55,8,2,42,59.76,0,Basic,Store,Atención rápida y eficiente,0
+248,19,Guayaquil,284.4,26,1,30,80.94,0,Basic,Web,No volvería a comprar,0
+249,45,Quito,332.42,113,4,33,80.02,0,Basic,WhatsApp,Muy satisfecho con el soporte,1
+250,71,Manta,269.1,71,3,5,93.21,1,Premium,WhatsApp,Atención rápida y eficiente,0
+251,40,Guayaquil,229.28,30,0,21,77.02,1,Basic,Store,Problemas frecuentes con la plataforma,0
+252,54,Manta,234.29,135,2,13,74.77,1,Enterprise,WhatsApp,Excelente experiencia,0
+253,49,Quito,244.27,67,2,2,23.41,0,Premium,WhatsApp,Muy satisfecho con el soporte,0
+254,50,Cuenca,247.02,65,3,11,5.99,1,Basic,WhatsApp,El producto llegó tarde,1
+255,18,Quito,308.21,36,1,35,51.76,0,Premium,WhatsApp,El producto llegó tarde,0
+256,36,Quito,254.16,25,2,11,12.44,0,Premium,Store,Buen precio y calidad,0
+257,19,Quito,308.61,37,0,44,96.22,0,Premium,WhatsApp,El producto llegó tarde,0
+258,70,Quito,243.54,1,3,1,28.99,0,Enterprise,WhatsApp,Excelente experiencia,0
+259,61,Cuenca,256.29,143,3,1,85.29,1,Basic,WhatsApp,No volvería a comprar,0
+260,43,Cuenca,90.14,37,2,14,38.76,0,Premium,Web,Muy satisfecho con el soporte,0
+261,49,Manta,323.31,141,0,22,32.32,0,Premium,Store,Problemas frecuentes con la plataforma,1
+262,23,Guayaquil,277.72,136,3,28,93.52,1,Premium,Web,Servicio lento y mala atención,1
+263,49,Cuenca,329.84,133,2,16,36.33,1,Basic,Web,El producto llegó tarde,0
+264,72,Cuenca,18.3,128,4,31,39.03,1,Premium,Store,El producto llegó tarde,1
+265,21,Guayaquil,417.07,127,1,6,10.61,0,Premium,Web,Servicio lento y mala atención,1
+266,72,Cuenca,238.83,1,3,29,67.04,1,Enterprise,Web,Problemas frecuentes con la plataforma,0
+267,28,Quito,338.65,164,2,27,28.88,0,Basic,Web,Problemas frecuentes con la plataforma,1
+268,73,Quito,166.81,35,4,13,58.56,0,Enterprise,Store,Servicio lento y mala atención,0
+269,34,Guayaquil,299.02,104,0,43,59.14,1,Basic,WhatsApp,Problemas frecuentes con la plataforma,1
+270,55,Manta,165.73,23,2,29,71.92,1,Basic,Call Center,Excelente experiencia,0
+271,41,Manta,200.1,9,1,16,74.52,1,Basic,Call Center,Problemas frecuentes con la plataforma,0
+272,22,Guayaquil,403.12,34,1,31,51.45,0,Enterprise,Store,Muy satisfecho con el soporte,0
+273,69,Guayaquil,234.75,174,1,45,33.1,0,Enterprise,Call Center,Problemas frecuentes con la plataforma,1
+274,51,Quito,267.39,128,0,5,83.75,0,Enterprise,Store,Atención rápida y eficiente,0
+275,23,Manta,319.61,4,1,50,30.99,0,Enterprise,Store,Atención rápida y eficiente,0
+276,39,Cuenca,289.65,158,2,23,50.75,0,Premium,Call Center,El producto llegó tarde,1
+277,28,Quito,262.03,102,3,5,40.13,0,Premium,Web,No volvería a comprar,0
+278,65,Guayaquil,279.2,75,5,26,85.51,1,Premium,WhatsApp,Excelente experiencia,1
+279,33,Manta,442.27,99,3,17,43.19,0,Basic,Call Center,Excelente experiencia,0
+280,50,Cuenca,245.39,72,2,23,38.61,1,Premium,Call Center,Problemas frecuentes con la plataforma,0
+281,26,Cuenca,266.09,3,4,36,68.98,1,Basic,Call Center,No volvería a comprar,1
+282,23,Quito,334.05,142,3,55,60.24,1,Enterprise,Call Center,No volvería a comprar,1
+283,33,Manta,338.44,173,2,23,10.72,1,Basic,Store,Buen precio y calidad,1
+284,46,Manta,344.96,34,1,37,50.82,1,Basic,Store,No volvería a comprar,0
+285,20,Guayaquil,301.1,45,1,33,73.55,0,Premium,WhatsApp,Problemas frecuentes con la plataforma,0
+286,37,Manta,158.56,61,4,39,99.21,0,Enterprise,WhatsApp,Problemas frecuentes con la plataforma,1
+287,53,Manta,380.67,83,5,46,62.91,0,Enterprise,Call Center,Servicio lento y mala atención,1
+288,36,Quito,158.29,123,1,14,37.03,0,Premium,Call Center,El producto llegó tarde,0
+289,43,Manta,274.21,102,3,10,22.62,1,Enterprise,Call Center,Atención rápida y eficiente,1
+290,20,Cuenca,189.66,16,2,21,87.28,1,Enterprise,WhatsApp,Buen precio y calidad,0
+291,36,Quito,244.87,66,1,53,81.46,1,Enterprise,Call Center,Problemas frecuentes con la plataforma,0
+292,37,Quito,276.3,168,2,23,23.39,0,Premium,Web,Servicio lento y mala atención,1
+293,49,Guayaquil,275.71,145,1,0,20.06,0,Enterprise,WhatsApp,Buen precio y calidad,1
+294,24,Manta,283.75,119,2,17,71.51,0,Basic,Web,El producto llegó tarde,0
+295,69,Guayaquil,379.1,162,1,43,31.5,0,Basic,Call Center,Buen precio y calidad,1
+296,58,Cuenca,286.28,124,0,11,30.64,1,Enterprise,Store,Servicio lento y mala atención,0
+297,50,Quito,230.47,144,2,56,15.23,1,Premium,Web,Muy satisfecho con el soporte,1
+298,57,Quito,327.13,102,1,42,26.4,0,Premium,WhatsApp,Atención rápida y eficiente,1
+299,56,Quito,345.16,66,2,27,42.75,0,Premium,Web,Problemas frecuentes con la plataforma,0
+300,35,Cuenca,151.79,13,3,39,73.28,1,Enterprise,WhatsApp,Atención rápida y eficiente,0
+301,57,Cuenca,297.79,111,0,59,33.63,1,Enterprise,Call Center,El producto llegó tarde,1
+302,18,Guayaquil,306.09,159,0,6,32.86,1,Basic,Web,Excelente experiencia,0
+303,28,Guayaquil,226.19,34,2,22,28.49,1,Premium,Store,El producto llegó tarde,1
+304,45,Guayaquil,360.06,39,1,20,47.83,0,Basic,Web,El producto llegó tarde,0
+305,74,Manta,238.0,136,2,33,18.06,1,Basic,Store,El producto llegó tarde,0
+306,42,Quito,260.05,120,3,10,48.56,1,Premium,WhatsApp,Muy satisfecho con el soporte,0
+307,67,Quito,236.15,126,2,21,70.42,1,Enterprise,Call Center,Problemas frecuentes con la plataforma,1
+308,40,Guayaquil,251.25,55,3,41,2.98,1,Enterprise,Call Center,Servicio lento y mala atención,1
+309,48,Quito,162.3,27,3,34,0.98,0,Basic,Store,Problemas frecuentes con la plataforma,1
+310,47,Guayaquil,134.8,118,3,51,7.51,0,Basic,WhatsApp,Excelente experiencia,1
+311,59,Manta,377.56,53,2,28,53.57,0,Basic,Call Center,Servicio lento y mala atención,0
+312,52,Manta,182.24,39,0,41,85.45,0,Basic,WhatsApp,Buen precio y calidad,0
+313,24,Cuenca,170.69,65,2,27,0.49,0,Premium,Store,Buen precio y calidad,1
+314,33,Manta,77.73,145,2,58,93.67,0,Basic,Store,Buen precio y calidad,1
+315,43,Guayaquil,198.88,158,2,17,10.63,1,Basic,Web,Servicio lento y mala atención,1
+316,65,Manta,144.15,13,3,13,84.2,1,Enterprise,Call Center,No volvería a comprar,0
+317,74,Cuenca,381.36,21,1,17,48.29,1,Enterprise,Call Center,Muy satisfecho con el soporte,0
+318,69,Quito,330.79,147,2,27,65.94,1,Enterprise,Web,No volvería a comprar,0
+319,66,Guayaquil,194.95,53,0,23,51.07,0,Premium,Store,Problemas frecuentes con la plataforma,0
+320,19,Quito,430.19,19,0,7,47.7,1,Premium,Store,Buen precio y calidad,0
+321,18,Cuenca,328.54,57,2,41,83.49,0,Enterprise,Store,Muy satisfecho con el soporte,0
+322,65,Cuenca,224.01,25,3,53,75.59,1,Enterprise,Store,Servicio lento y mala atención,0
+323,29,Cuenca,50.05,31,1,44,48.34,1,Basic,WhatsApp,Buen precio y calidad,0
+324,22,Quito,433.28,81,1,52,11.16,1,Basic,Call Center,Servicio lento y mala atención,1
+325,54,Quito,138.83,23,4,7,11.54,0,Premium,Call Center,Muy satisfecho con el soporte,1
+326,49,Quito,118.37,32,1,3,80.15,1,Premium,Store,Servicio lento y mala atención,0
+327,72,Quito,331.81,74,2,26,52.94,0,Basic,Store,Servicio lento y mala atención,0
+328,26,Cuenca,445.18,10,0,35,48.16,0,Enterprise,Store,Excelente experiencia,0
+329,58,Cuenca,360.74,54,4,4,68.06,1,Basic,Call Center,Problemas frecuentes con la plataforma,0
+330,52,Guayaquil,295.11,52,3,32,85.88,0,Premium,Call Center,No volvería a comprar,0
+331,36,Guayaquil,297.58,148,2,48,62.89,0,Premium,Store,Atención rápida y eficiente,1
+332,65,Quito,318.27,160,2,33,76.28,1,Basic,WhatsApp,No volvería a comprar,1
+333,33,Manta,310.71,114,3,29,76.53,1,Basic,Web,No volvería a comprar,1
+334,20,Manta,272.5,14,3,7,35.63,1,Basic,Web,El producto llegó tarde,0
+335,37,Cuenca,258.34,178,1,38,27.41,1,Premium,Web,Excelente experiencia,1
+336,41,Cuenca,244.99,156,3,46,80.12,1,Enterprise,Call Center,Atención rápida y eficiente,1
+337,71,Cuenca,189.68,110,3,25,37.72,1,Basic,Call Center,Buen precio y calidad,1
+338,73,Guayaquil,227.55,53,0,56,90.33,0,Premium,Web,Buen precio y calidad,0
+339,50,Guayaquil,114.56,152,4,36,6.97,1,Premium,Web,Buen precio y calidad,1
+340,41,Cuenca,242.13,79,4,33,5.82,1,Premium,WhatsApp,No volvería a comprar,1
+341,69,Cuenca,170.91,22,2,6,92.7,0,Basic,Call Center,Problemas frecuentes con la plataforma,0
+342,28,Cuenca,161.71,30,2,39,64.85,1,Basic,Call Center,No volvería a comprar,0
+343,66,Manta,264.39,4,2,27,37.96,0,Enterprise,Web,Atención rápida y eficiente,0
+344,25,Guayaquil,361.36,59,0,38,75.51,1,Premium,WhatsApp,Problemas frecuentes con la plataforma,0
+345,53,Manta,323.47,8,2,38,67.23,1,Basic,WhatsApp,Excelente experiencia,0
+346,55,Manta,124.36,12,2,27,53.12,0,Premium,Web,Problemas frecuentes con la plataforma,0
+347,57,Cuenca,170.83,119,3,13,9.89,1,Premium,Web,Atención rápida y eficiente,0
+348,37,Cuenca,325.26,159,0,52,81.22,0,Enterprise,Call Center,Servicio lento y mala atención,1
+349,52,Quito,171.4,34,1,49,86.6,1,Basic,Web,No volvería a comprar,0
+350,65,Quito,232.03,82,3,37,17.22,1,Basic,Store,Buen precio y calidad,1
+351,42,Manta,294.0,98,3,3,85.05,0,Premium,WhatsApp,Servicio lento y mala atención,1
+352,52,Guayaquil,172.53,127,4,41,87.78,1,Premium,Web,No volvería a comprar,0
+353,42,Cuenca,258.43,75,0,17,54.94,1,Enterprise,Store,Muy satisfecho con el soporte,0
+354,46,Cuenca,143.28,105,3,43,65.62,0,Enterprise,WhatsApp,El producto llegó tarde,1
+355,35,Manta,201.89,49,1,47,38.22,1,Enterprise,Store,No volvería a comprar,0
+356,63,Quito,275.58,79,2,24,28.18,0,Enterprise,Store,Muy satisfecho con el soporte,1
+357,35,Guayaquil,122.56,93,5,6,72.2,1,Enterprise,Web,Atención rápida y eficiente,1
+358,19,Quito,285.24,154,0,37,86.19,0,Enterprise,WhatsApp,Excelente experiencia,1
+359,71,Quito,248.43,18,1,27,65.41,1,Premium,Store,Muy satisfecho con el soporte,0
+360,52,Quito,294.2,96,3,4,51.16,0,Enterprise,Call Center,Excelente experiencia,0
+361,33,Quito,267.91,38,3,2,15.89,0,Premium,WhatsApp,No volvería a comprar,0
+362,58,Cuenca,359.13,87,1,43,5.35,1,Premium,Call Center,Excelente experiencia,1
+363,53,Cuenca,260.02,88,0,30,44.57,1,Basic,Web,Muy satisfecho con el soporte,0
+364,50,Quito,215.65,50,3,46,4.93,0,Premium,Call Center,Problemas frecuentes con la plataforma,1
+365,21,Guayaquil,259.78,8,3,41,56.93,1,Premium,WhatsApp,El producto llegó tarde,1
+366,50,Manta,293.46,169,0,57,38.27,0,Enterprise,Store,Servicio lento y mala atención,1
+367,31,Guayaquil,253.91,134,2,19,75.72,1,Premium,Store,Servicio lento y mala atención,0
+368,38,Guayaquil,253.25,69,0,18,30.56,1,Enterprise,WhatsApp,El producto llegó tarde,1
+369,65,Guayaquil,193.84,172,4,47,59.3,0,Enterprise,Store,Buen precio y calidad,1
+370,37,Quito,196.97,121,0,59,53.77,0,Enterprise,Call Center,Servicio lento y mala atención,1
+371,73,Cuenca,137.79,64,2,10,0.47,1,Basic,Store,Atención rápida y eficiente,0
+372,25,Guayaquil,389.97,157,1,39,7.24,1,Enterprise,Store,No volvería a comprar,1
+373,24,Quito,150.49,156,0,2,29.04,1,Premium,Call Center,Buen precio y calidad,1
+374,20,Guayaquil,194.57,139,1,22,88.22,1,Enterprise,Call Center,No volvería a comprar,1
+375,34,Guayaquil,192.53,121,2,6,14.7,1,Enterprise,Call Center,Muy satisfecho con el soporte,1
+376,50,Quito,321.59,65,5,22,71.09,0,Enterprise,Web,Atención rápida y eficiente,1
+377,65,Cuenca,226.4,107,1,6,97.34,1,Basic,Call Center,Muy satisfecho con el soporte,0
+378,29,Cuenca,349.82,147,3,45,79.06,1,Premium,Call Center,Buen precio y calidad,1
+379,68,Manta,196.12,137,1,33,24.29,0,Basic,Web,Buen precio y calidad,1
+380,39,Quito,272.32,155,5,41,90.84,0,Premium,Store,Atención rápida y eficiente,1
+381,72,Manta,183.17,162,2,18,9.31,0,Basic,Call Center,Atención rápida y eficiente,1
+382,39,Manta,421.61,172,0,57,46.81,1,Premium,WhatsApp,Buen precio y calidad,1
+383,63,Manta,154.99,100,1,8,88.75,0,Basic,Call Center,Buen precio y calidad,0
+384,47,Cuenca,274.79,82,2,47,64.13,0,Enterprise,Call Center,Excelente experiencia,0
+385,55,Quito,300.7,143,0,50,41.36,0,Basic,Web,Problemas frecuentes con la plataforma,1
+386,55,Manta,283.1,51,1,17,29.28,0,Basic,WhatsApp,Buen precio y calidad,0
+387,62,Quito,235.18,141,3,40,37.51,1,Enterprise,Store,Atención rápida y eficiente,1
+388,68,Quito,239.61,83,0,47,50.89,1,Enterprise,Store,Problemas frecuentes con la plataforma,0
+389,71,Cuenca,253.5,177,0,44,31.9,1,Premium,WhatsApp,Buen precio y calidad,1
+390,25,Manta,238.24,112,2,41,96.9,0,Premium,Call Center,Muy satisfecho con el soporte,0
+391,44,Manta,327.11,56,2,24,93.31,0,Premium,Web,No volvería a comprar,1
+392,44,Quito,426.84,179,2,51,87.07,0,Basic,WhatsApp,Problemas frecuentes con la plataforma,1
+393,51,Guayaquil,205.4,165,4,13,42.18,0,Premium,WhatsApp,Muy satisfecho con el soporte,1
+394,38,Cuenca,140.42,145,3,43,69.13,0,Basic,Store,Servicio lento y mala atención,1
+395,47,Cuenca,242.94,157,1,24,90.28,0,Basic,Web,Atención rápida y eficiente,1
+396,50,Cuenca,456.38,161,3,18,85.04,1,Premium,WhatsApp,Excelente experiencia,0
+397,45,Cuenca,185.71,60,1,38,41.43,1,Premium,Web,Excelente experiencia,0
+398,64,Manta,381.13,120,3,54,11.24,0,Basic,Call Center,No volvería a comprar,1
+399,50,Manta,384.22,138,3,14,7.56,1,Enterprise,Store,Buen precio y calidad,1
+400,22,Guayaquil,205.71,175,2,15,57.71,0,Enterprise,Call Center,Muy satisfecho con el soporte,0
+401,65,Cuenca,295.52,23,3,26,64.26,0,Basic,Web,Servicio lento y mala atención,0
+402,36,Cuenca,380.27,149,2,39,84.98,1,Premium,Call Center,Muy satisfecho con el soporte,1
+403,21,Quito,219.67,13,3,9,29.25,0,Basic,Store,Atención rápida y eficiente,0
+404,52,Manta,233.71,101,1,3,16.75,1,Basic,Web,Atención rápida y eficiente,1
+405,66,Cuenca,203.47,161,3,50,37.9,0,Premium,WhatsApp,Buen precio y calidad,0
+406,34,Guayaquil,168.82,24,2,18,35.36,0,Enterprise,Call Center,Buen precio y calidad,0
+407,61,Guayaquil,198.06,108,4,27,13.25,1,Basic,Store,Atención rápida y eficiente,1
+408,45,Manta,152.08,11,3,20,67.23,0,Enterprise,WhatsApp,El producto llegó tarde,0
+409,47,Guayaquil,252.73,17,1,58,50.87,0,Enterprise,Store,Atención rápida y eficiente,0
+410,46,Guayaquil,188.4,175,1,46,72.11,0,Premium,Web,Muy satisfecho con el soporte,1
+411,63,Manta,268.7,25,2,13,35.27,1,Basic,Web,No volvería a comprar,0
+412,70,Cuenca,125.53,94,4,32,32.57,0,Basic,Call Center,Muy satisfecho con el soporte,1
+413,23,Cuenca,276.47,21,2,47,47.26,0,Enterprise,Store,Excelente experiencia,0
+414,52,Guayaquil,316.68,84,3,9,87.74,0,Enterprise,Store,Servicio lento y mala atención,0
+415,58,Guayaquil,90.5,140,1,18,4.03,1,Premium,Store,Problemas frecuentes con la plataforma,1
+416,54,Cuenca,279.92,37,2,29,80.48,1,Enterprise,Web,No volvería a comprar,0
+417,41,Manta,348.21,42,4,21,36.9,1,Premium,Call Center,El producto llegó tarde,1
+418,46,Guayaquil,153.23,145,4,2,85.46,1,Basic,Store,Servicio lento y mala atención,1
+419,66,Quito,383.81,101,1,36,80.22,1,Premium,Store,Servicio lento y mala atención,1
+420,63,Manta,283.52,48,3,40,34.88,0,Enterprise,WhatsApp,Problemas frecuentes con la plataforma,0
+421,70,Guayaquil,193.6,103,0,17,69.39,1,Basic,Store,Excelente experiencia,0
+422,48,Guayaquil,245.54,28,2,10,15.96,1,Premium,Call Center,Excelente experiencia,0
+423,52,Quito,294.67,41,5,47,89.63,0,Basic,WhatsApp,Excelente experiencia,1
+424,50,Quito,256.08,99,1,1,40.45,1,Premium,WhatsApp,No volvería a comprar,0
+425,69,Cuenca,293.1,47,2,11,45.56,0,Enterprise,WhatsApp,Muy satisfecho con el soporte,0
+426,38,Manta,176.35,146,2,53,70.58,1,Enterprise,Web,Servicio lento y mala atención,1
+427,49,Manta,263.55,105,0,5,82.08,0,Basic,WhatsApp,Muy satisfecho con el soporte,0
+428,40,Cuenca,136.9,124,3,42,23.63,0,Basic,Store,Muy satisfecho con el soporte,1
+429,50,Manta,241.1,13,1,58,66.14,1,Basic,Web,Excelente experiencia,0
+430,20,Manta,177.69,141,4,39,39.2,1,Premium,Web,Muy satisfecho con el soporte,1
+431,35,Manta,191.16,100,5,43,36.87,0,Enterprise,Web,Servicio lento y mala atención,1
+432,42,Manta,348.89,31,3,28,69.0,0,Basic,Web,Servicio lento y mala atención,1
+433,59,Manta,337.3,130,2,58,38.72,0,Basic,Web,Buen precio y calidad,1
+434,48,Quito,298.73,16,0,29,34.61,0,Basic,Web,El producto llegó tarde,0
+435,71,Manta,162.61,137,3,1,83.59,0,Premium,Web,No volvería a comprar,0
+436,20,Quito,224.69,73,1,8,10.13,0,Basic,WhatsApp,Muy satisfecho con el soporte,0
+437,57,Manta,347.05,166,1,46,67.59,0,Basic,Call Center,No volvería a comprar,0
+438,63,Cuenca,261.34,54,1,1,24.87,1,Premium,Store,No volvería a comprar,0
+439,41,Guayaquil,435.55,100,1,28,1.55,0,Premium,Store,No volvería a comprar,1
+440,67,Quito,281.47,109,2,32,16.68,1,Basic,WhatsApp,Problemas frecuentes con la plataforma,1
+441,49,Manta,265.36,87,2,9,60.67,1,Basic,WhatsApp,Atención rápida y eficiente,0
+442,64,Cuenca,225.27,173,1,33,70.91,0,Premium,Web,Buen precio y calidad,1
+443,39,Guayaquil,260.68,162,0,43,2.11,0,Enterprise,Call Center,No volvería a comprar,1
+444,40,Quito,237.8,137,5,54,3.64,1,Premium,Web,Atención rápida y eficiente,1
+445,19,Guayaquil,306.65,8,0,7,90.25,0,Enterprise,WhatsApp,Atención rápida y eficiente,0
+446,44,Cuenca,326.54,7,0,36,7.33,0,Basic,Web,Buen precio y calidad,1
+447,59,Quito,187.12,36,1,53,89.42,1,Basic,Store,Servicio lento y mala atención,0
+448,19,Guayaquil,143.5,18,1,59,22.82,1,Enterprise,Store,Problemas frecuentes con la plataforma,1
+449,43,Manta,103.1,3,3,32,74.0,1,Premium,Web,Muy satisfecho con el soporte,0
+450,34,Quito,290.64,28,1,46,30.97,0,Basic,Call Center,Buen precio y calidad,1
+451,57,Guayaquil,161.73,70,0,5,85.88,0,Enterprise,Web,El producto llegó tarde,0
+452,50,Cuenca,77.77,172,1,43,70.05,1,Premium,Web,Atención rápida y eficiente,1
+453,26,Cuenca,281.09,149,4,39,40.18,0,Enterprise,Call Center,No volvería a comprar,1
+454,60,Quito,449.44,28,2,44,7.63,1,Premium,Call Center,Atención rápida y eficiente,1
+455,71,Guayaquil,249.51,54,0,18,73.27,0,Premium,Call Center,Problemas frecuentes con la plataforma,0
+456,65,Quito,317.08,65,3,31,61.69,1,Premium,Store,El producto llegó tarde,0
+457,56,Quito,256.55,100,1,26,0.29,0,Premium,Web,Servicio lento y mala atención,1
+458,46,Guayaquil,242.09,21,1,0,0.94,1,Enterprise,WhatsApp,Servicio lento y mala atención,0
+459,59,Guayaquil,323.53,13,0,42,80.88,0,Enterprise,Call Center,Excelente experiencia,0
+460,72,Manta,226.78,57,3,51,25.94,0,Enterprise,Call Center,No volvería a comprar,1
+461,43,Guayaquil,271.39,49,1,32,63.61,1,Enterprise,Web,Excelente experiencia,0
+462,52,Cuenca,275.74,118,0,39,45.42,0,Enterprise,WhatsApp,Problemas frecuentes con la plataforma,1
+463,67,Quito,196.55,54,2,31,86.34,0,Premium,Web,El producto llegó tarde,0
+464,42,Quito,329.36,138,3,4,91.7,1,Basic,Web,Atención rápida y eficiente,0
+465,41,Cuenca,236.0,53,1,16,99.68,0,Basic,Call Center,Muy satisfecho con el soporte,0
+466,30,Guayaquil,189.54,44,5,7,15.37,0,Enterprise,Call Center,Excelente experiencia,1
+467,24,Cuenca,292.92,47,3,56,86.3,0,Enterprise,Store,Servicio lento y mala atención,0
+468,74,Cuenca,178.12,53,3,41,26.6,1,Basic,WhatsApp,No volvería a comprar,1
+469,53,Manta,252.25,74,4,33,59.08,1,Premium,WhatsApp,Atención rápida y eficiente,1
+470,62,Cuenca,249.27,46,1,8,50.58,1,Enterprise,Call Center,El producto llegó tarde,0
+471,37,Quito,336.87,13,2,55,1.8,1,Premium,Call Center,Buen precio y calidad,1
+472,18,Cuenca,287.98,165,2,22,93.28,1,Basic,Call Center,Problemas frecuentes con la plataforma,0
+473,25,Quito,248.0,102,2,34,7.83,0,Basic,WhatsApp,Problemas frecuentes con la plataforma,1
+474,63,Quito,315.42,24,2,49,68.82,0,Enterprise,Store,Servicio lento y mala atención,0
+475,33,Quito,361.22,2,3,6,78.5,1,Premium,WhatsApp,Buen precio y calidad,0
+476,31,Guayaquil,294.62,81,3,14,79.53,0,Enterprise,Call Center,Problemas frecuentes con la plataforma,0
+477,29,Manta,250.83,100,2,52,13.55,0,Basic,Call Center,Muy satisfecho con el soporte,1
+478,68,Quito,145.05,142,3,53,44.76,0,Premium,Store,Atención rápida y eficiente,1
+479,40,Quito,164.79,138,1,19,82.94,0,Enterprise,Web,No volvería a comprar,0
+480,32,Guayaquil,225.58,163,3,49,30.27,1,Enterprise,Web,Atención rápida y eficiente,1
+481,45,Quito,201.24,153,5,24,46.77,1,Enterprise,WhatsApp,Muy satisfecho con el soporte,1
+482,51,Cuenca,235.04,131,0,2,27.28,0,Basic,Web,Problemas frecuentes con la plataforma,1
+483,19,Cuenca,254.53,111,1,59,46.36,0,Enterprise,Web,Muy satisfecho con el soporte,1
+484,49,Manta,292.38,102,2,54,88.78,1,Premium,WhatsApp,Atención rápida y eficiente,1
+485,40,Quito,244.36,17,0,45,45.51,0,Enterprise,Call Center,Problemas frecuentes con la plataforma,0
+486,39,Guayaquil,288.92,12,2,23,55.59,0,Basic,Web,No volvería a comprar,0
+487,68,Cuenca,255.16,116,0,33,40.4,0,Enterprise,Call Center,No volvería a comprar,1
+488,42,Guayaquil,91.96,24,2,45,46.01,1,Basic,WhatsApp,Buen precio y calidad,0
+489,39,Guayaquil,174.85,29,1,21,1.52,1,Basic,Call Center,Muy satisfecho con el soporte,1
+490,39,Cuenca,238.47,171,3,10,28.37,0,Premium,Call Center,El producto llegó tarde,0
+491,66,Guayaquil,153.22,153,2,47,43.66,0,Premium,WhatsApp,Buen precio y calidad,0
+492,69,Cuenca,297.99,122,5,7,63.38,0,Enterprise,Call Center,No volvería a comprar,1
+493,59,Guayaquil,372.46,90,3,38,45.01,0,Basic,Web,Servicio lento y mala atención,0
+494,23,Cuenca,347.5,65,1,42,33.78,0,Basic,Web,Problemas frecuentes con la plataforma,0
+495,32,Quito,232.92,84,1,34,38.81,0,Premium,Web,Buen precio y calidad,0
+496,71,Manta,369.26,119,3,48,24.23,1,Premium,Web,Excelente experiencia,0
+497,60,Cuenca,261.89,156,0,45,92.45,1,Enterprise,Call Center,El producto llegó tarde,1
+498,54,Cuenca,223.03,16,0,37,52.17,0,Basic,Web,Problemas frecuentes con la plataforma,0
+499,50,Manta,200.93,175,1,7,1.34,1,Premium,Call Center,Buen precio y calidad,1
+500,25,Cuenca,225.8,104,1,53,1.94,0,Enterprise,Store,No volvería a comprar,1
+501,70,Cuenca,218.95,92,2,36,97.3,0,Basic,Call Center,Atención rápida y eficiente,1
+502,61,Guayaquil,263.63,27,4,26,22.15,1,Basic,Web,No volvería a comprar,1
+503,61,Manta,262.85,170,2,27,80.56,1,Premium,Store,El producto llegó tarde,1
+504,22,Quito,250.24,175,6,39,5.83,0,Enterprise,WhatsApp,Excelente experiencia,1
+505,56,Cuenca,284.96,162,1,33,92.12,0,Premium,Call Center,Buen precio y calidad,1
+506,21,Manta,345.25,165,2,31,87.44,1,Enterprise,Web,Atención rápida y eficiente,1
+507,23,Guayaquil,325.96,134,1,14,57.11,1,Basic,Web,Buen precio y calidad,0
+508,62,Quito,131.21,135,3,43,0.9,0,Enterprise,Web,Muy satisfecho con el soporte,1
+509,49,Manta,45.69,153,3,16,25.78,0,Enterprise,WhatsApp,Servicio lento y mala atención,1
+510,69,Quito,324.75,33,2,32,40.68,0,Enterprise,Store,No volvería a comprar,0
+511,47,Quito,140.65,55,4,46,46.01,1,Enterprise,Store,Buen precio y calidad,1
+512,64,Quito,232.02,7,2,45,29.77,0,Enterprise,Web,Buen precio y calidad,1
+513,52,Cuenca,156.39,57,3,51,3.29,1,Premium,Call Center,Problemas frecuentes con la plataforma,1
+514,72,Cuenca,105.84,126,2,53,59.01,0,Enterprise,Web,Problemas frecuentes con la plataforma,0
+515,57,Guayaquil,293.32,12,2,15,52.42,1,Enterprise,Web,Buen precio y calidad,0
+516,69,Guayaquil,310.73,16,1,28,28.3,1,Basic,Call Center,Excelente experiencia,0
+517,33,Manta,203.88,43,3,8,3.8,1,Enterprise,Web,Servicio lento y mala atención,0
+518,30,Guayaquil,42.72,117,3,32,99.46,1,Basic,WhatsApp,Buen precio y calidad,1
+519,67,Quito,206.3,135,2,59,48.2,0,Premium,Web,El producto llegó tarde,1
+520,59,Quito,281.34,111,0,48,75.6,1,Premium,WhatsApp,No volvería a comprar,1
+521,47,Cuenca,131.69,51,1,28,45.23,1,Enterprise,Web,Muy satisfecho con el soporte,0
+522,36,Quito,264.67,160,1,12,4.32,1,Premium,Store,Problemas frecuentes con la plataforma,0
+523,34,Manta,248.78,75,5,20,30.96,0,Enterprise,Call Center,El producto llegó tarde,0
+524,73,Quito,296.34,8,1,57,32.01,0,Premium,Store,No volvería a comprar,0
+525,36,Quito,259.57,45,3,20,83.84,0,Enterprise,Web,Atención rápida y eficiente,0
+526,45,Manta,172.15,59,2,4,65.42,0,Enterprise,Web,Problemas frecuentes con la plataforma,0
+527,72,Guayaquil,345.73,132,3,9,27.54,0,Basic,WhatsApp,Excelente experiencia,1
+528,43,Guayaquil,237.32,104,4,5,96.77,0,Basic,Web,Problemas frecuentes con la plataforma,1
+529,54,Manta,247.82,157,3,55,32.15,1,Basic,Web,Servicio lento y mala atención,1
+530,43,Cuenca,175.34,157,3,50,99.82,1,Basic,Web,Servicio lento y mala atención,1
+531,70,Quito,214.54,98,2,56,99.62,1,Enterprise,Store,No volvería a comprar,1
+532,40,Manta,179.22,156,3,12,19.12,0,Premium,WhatsApp,El producto llegó tarde,1
+533,26,Quito,236.16,79,2,0,31.27,1,Enterprise,Store,Muy satisfecho con el soporte,0
+534,29,Cuenca,386.94,124,2,19,48.6,1,Basic,WhatsApp,Excelente experiencia,0
+535,70,Quito,140.25,172,5,56,66.41,0,Basic,Store,No volvería a comprar,0
+536,18,Manta,120.92,4,4,46,52.8,1,Premium,Web,Atención rápida y eficiente,1
+537,18,Quito,367.69,90,1,45,96.94,0,Basic,Store,Excelente experiencia,0
+538,64,Guayaquil,233.25,104,2,7,72.4,1,Enterprise,Store,Servicio lento y mala atención,0
+539,51,Cuenca,196.47,137,3,9,21.2,0,Enterprise,WhatsApp,Buen precio y calidad,1
+540,49,Cuenca,333.19,119,2,8,10.51,0,Enterprise,WhatsApp,Buen precio y calidad,1
+541,71,Cuenca,201.55,133,2,48,68.84,0,Enterprise,Store,Muy satisfecho con el soporte,1
+542,65,Manta,396.08,56,0,40,15.85,1,Enterprise,WhatsApp,Excelente experiencia,1
+543,42,Cuenca,304.23,96,3,2,78.77,1,Premium,WhatsApp,No volvería a comprar,0
+544,57,Guayaquil,210.97,178,2,10,31.1,0,Enterprise,WhatsApp,Muy satisfecho con el soporte,0
+545,62,Manta,422.58,75,3,11,32.69,0,Basic,Call Center,Problemas frecuentes con la plataforma,0
+546,70,Guayaquil,201.54,143,2,9,1.08,1,Basic,WhatsApp,Problemas frecuentes con la plataforma,1
+547,18,Quito,309.37,32,3,24,70.1,1,Basic,Call Center,Atención rápida y eficiente,1
+548,33,Quito,273.94,28,2,48,11.33,0,Basic,Call Center,El producto llegó tarde,1
+549,56,Quito,354.14,22,2,48,77.29,1,Premium,WhatsApp,Buen precio y calidad,0
+550,22,Quito,374.92,17,2,24,49.19,1,Basic,Store,No volvería a comprar,0
+551,39,Guayaquil,252.56,59,3,10,78.43,1,Premium,WhatsApp,Excelente experiencia,0
+552,46,Manta,189.73,90,2,53,58.39,0,Basic,Web,Muy satisfecho con el soporte,0
+553,72,Manta,286.8,106,1,35,8.24,0,Premium,Store,No volvería a comprar,1
+554,20,Cuenca,195.78,26,1,38,76.57,1,Premium,Call Center,Muy satisfecho con el soporte,0
+555,29,Guayaquil,411.07,25,3,52,6.98,0,Premium,Call Center,Muy satisfecho con el soporte,1
+556,43,Quito,260.92,138,0,25,47.87,1,Basic,Store,Muy satisfecho con el soporte,1
+557,33,Guayaquil,220.77,45,0,13,17.23,1,Premium,Store,Excelente experiencia,0
+558,68,Cuenca,264.77,83,3,38,75.23,0,Enterprise,WhatsApp,No volvería a comprar,0
+559,54,Cuenca,142.23,11,2,55,91.16,0,Enterprise,Call Center,Servicio lento y mala atención,0
+560,39,Guayaquil,172.27,104,2,39,55.41,0,Basic,Web,Servicio lento y mala atención,1
+561,74,Guayaquil,346.03,68,0,0,52.71,1,Enterprise,WhatsApp,Excelente experiencia,0
+562,46,Guayaquil,197.45,95,2,55,76.4,1,Enterprise,Store,Problemas frecuentes con la plataforma,1
+563,31,Manta,166.25,156,1,53,0.51,0,Enterprise,Call Center,Excelente experiencia,1
+564,45,Quito,292.93,65,2,3,91.78,0,Basic,Store,Buen precio y calidad,0
+565,22,Guayaquil,344.86,49,3,29,19.74,0,Basic,Store,Muy satisfecho con el soporte,1
+566,64,Guayaquil,307.52,175,1,11,98.41,1,Enterprise,Store,No volvería a comprar,0
+567,66,Guayaquil,329.68,52,5,55,73.63,1,Basic,WhatsApp,No volvería a comprar,1
+568,47,Cuenca,189.46,102,1,34,77.43,1,Premium,Web,El producto llegó tarde,1
+569,63,Cuenca,136.26,57,2,12,65.62,0,Enterprise,Web,El producto llegó tarde,0
+570,69,Manta,370.11,47,2,51,47.17,0,Basic,Call Center,Atención rápida y eficiente,1
+571,22,Quito,224.19,159,1,30,57.16,1,Basic,Store,Servicio lento y mala atención,0
+572,29,Manta,229.93,174,3,37,4.64,0,Enterprise,Web,El producto llegó tarde,1
+573,33,Quito,356.26,26,1,42,62.4,0,Basic,Store,El producto llegó tarde,0
+574,43,Cuenca,294.5,114,1,22,62.61,0,Enterprise,Call Center,Servicio lento y mala atención,1
+575,43,Cuenca,286.47,5,1,3,89.12,0,Basic,Store,Buen precio y calidad,0
+576,65,Cuenca,423.2,84,1,51,50.57,1,Premium,Web,Problemas frecuentes con la plataforma,0
+577,38,Manta,198.52,52,4,15,7.71,0,Enterprise,Store,Servicio lento y mala atención,1
+578,56,Guayaquil,324.23,105,0,6,30.62,1,Premium,Web,Problemas frecuentes con la plataforma,0
+579,53,Guayaquil,254.56,54,1,21,65.56,1,Enterprise,Call Center,Atención rápida y eficiente,0
+580,50,Cuenca,271.49,161,1,28,23.93,0,Basic,Store,El producto llegó tarde,1
+581,47,Guayaquil,372.28,178,1,10,28.05,1,Premium,Web,No volvería a comprar,1
+582,54,Guayaquil,290.63,166,1,55,82.05,1,Basic,Call Center,El producto llegó tarde,1
+583,40,Manta,293.06,155,1,32,58.43,0,Enterprise,Store,Muy satisfecho con el soporte,1
+584,27,Quito,335.8,15,0,57,50.85,1,Enterprise,Call Center,Atención rápida y eficiente,0
+585,71,Cuenca,220.8,61,3,28,31.85,1,Enterprise,Web,Problemas frecuentes con la plataforma,0
+586,22,Cuenca,182.86,122,0,58,73.09,1,Enterprise,Store,Problemas frecuentes con la plataforma,1
+587,53,Manta,166.42,21,3,38,28.77,1,Enterprise,Store,Muy satisfecho con el soporte,1
+588,51,Manta,92.69,46,1,11,73.71,1,Premium,Store,Muy satisfecho con el soporte,0
+589,69,Guayaquil,414.5,134,6,6,7.01,1,Enterprise,Call Center,Buen precio y calidad,1
+590,48,Cuenca,161.74,38,1,58,86.45,1,Basic,Call Center,Excelente experiencia,0
+591,27,Quito,232.3,62,2,54,49.96,1,Premium,Web,Muy satisfecho con el soporte,0
+592,36,Manta,227.85,86,1,38,43.85,0,Basic,WhatsApp,Problemas frecuentes con la plataforma,0
+593,49,Quito,274.59,78,1,41,61.1,0,Enterprise,Store,No volvería a comprar,0
+594,18,Quito,315.26,46,4,47,62.42,0,Basic,Store,Problemas frecuentes con la plataforma,0
+595,73,Cuenca,318.84,141,1,25,13.2,1,Premium,Web,Problemas frecuentes con la plataforma,1
+596,22,Cuenca,203.35,3,2,39,75.62,1,Premium,Store,Buen precio y calidad,0
+597,62,Manta,236.63,6,3,8,27.59,1,Premium,Call Center,Excelente experiencia,0
+598,21,Cuenca,272.61,93,0,40,90.5,0,Basic,Call Center,Excelente experiencia,1
+599,33,Cuenca,230.1,8,1,33,81.79,0,Premium,Store,Muy satisfecho con el soporte,0
+600,41,Cuenca,378.59,172,1,44,34.63,0,Basic,Store,Atención rápida y eficiente,1
+601,33,Quito,289.28,108,1,12,80.77,1,Enterprise,Call Center,El producto llegó tarde,0
+602,72,Manta,308.79,161,3,54,35.64,0,Enterprise,Store,Problemas frecuentes con la plataforma,1
+603,19,Guayaquil,303.03,75,1,54,10.09,0,Basic,Call Center,Servicio lento y mala atención,1
+604,66,Quito,343.88,77,2,35,96.19,1,Premium,WhatsApp,El producto llegó tarde,0
+605,45,Cuenca,264.48,50,3,24,65.26,0,Basic,WhatsApp,El producto llegó tarde,0
+606,49,Quito,146.25,11,1,23,45.61,1,Basic,Store,Excelente experiencia,0
+607,44,Cuenca,281.98,95,2,43,39.78,0,Basic,Store,Excelente experiencia,0
+608,37,Cuenca,197.89,156,3,16,32.47,1,Enterprise,Store,Buen precio y calidad,0
+609,41,Quito,207.71,70,1,1,98.14,1,Basic,Call Center,Buen precio y calidad,0
+610,29,Manta,296.91,169,2,12,13.47,1,Enterprise,WhatsApp,Excelente experiencia,0
+611,67,Cuenca,349.06,16,3,30,31.48,1,Basic,WhatsApp,No volvería a comprar,1
+612,52,Manta,251.7,68,2,28,48.55,1,Enterprise,Web,No volvería a comprar,0
+613,50,Guayaquil,274.71,99,0,49,47.8,0,Basic,Web,Servicio lento y mala atención,1
+614,50,Cuenca,386.18,48,3,27,47.14,1,Basic,Store,Excelente experiencia,0
+615,68,Manta,269.26,64,2,59,17.58,1,Premium,Call Center,Muy satisfecho con el soporte,1
+616,60,Manta,458.13,90,2,26,14.49,1,Premium,Store,Buen precio y calidad,1
+617,54,Guayaquil,295.24,76,0,14,25.48,1,Basic,WhatsApp,Excelente experiencia,0
+618,29,Manta,109.14,139,1,30,91.45,0,Basic,Store,No volvería a comprar,1
+619,20,Manta,310.27,101,0,39,11.31,1,Basic,Store,Excelente experiencia,0
+620,18,Guayaquil,280.49,89,1,14,75.74,0,Basic,WhatsApp,No volvería a comprar,0
+621,50,Cuenca,353.18,18,1,32,75.75,1,Premium,WhatsApp,Excelente experiencia,0
+622,57,Manta,303.85,19,2,19,80.98,1,Enterprise,WhatsApp,Problemas frecuentes con la plataforma,0
+623,27,Manta,238.92,55,3,41,88.66,0,Basic,WhatsApp,Muy satisfecho con el soporte,0
+624,60,Manta,152.06,102,3,11,26.3,0,Premium,Web,Atención rápida y eficiente,1
+625,61,Quito,233.28,118,2,36,22.46,0,Basic,Call Center,Servicio lento y mala atención,1
+626,46,Guayaquil,181.96,154,2,8,46.55,1,Basic,Call Center,Problemas frecuentes con la plataforma,0
+627,30,Quito,203.56,134,4,22,26.51,0,Enterprise,WhatsApp,Muy satisfecho con el soporte,1
+628,29,Guayaquil,297.09,4,1,7,73.43,1,Basic,Call Center,No volvería a comprar,0
+629,48,Cuenca,383.59,108,3,31,63.59,0,Basic,Call Center,Buen precio y calidad,1
+630,63,Cuenca,281.57,115,3,47,87.5,0,Enterprise,Call Center,Buen precio y calidad,1
+631,19,Manta,154.33,29,4,13,8.27,1,Enterprise,Call Center,El producto llegó tarde,1
+632,68,Guayaquil,285.57,59,2,26,91.51,0,Enterprise,WhatsApp,Muy satisfecho con el soporte,0
+633,67,Cuenca,345.73,125,4,24,29.33,0,Enterprise,Store,Excelente experiencia,1
+634,52,Guayaquil,201.22,98,3,12,49.07,1,Premium,Store,Servicio lento y mala atención,0
+635,40,Cuenca,239.28,17,2,54,43.86,1,Premium,Store,Excelente experiencia,0
+636,34,Quito,251.18,107,3,20,76.03,1,Premium,Web,Excelente experiencia,0
+637,43,Cuenca,187.21,43,2,44,42.03,0,Basic,Call Center,Muy satisfecho con el soporte,0
+638,25,Quito,301.86,80,2,30,94.36,0,Enterprise,WhatsApp,Atención rápida y eficiente,0
+639,46,Cuenca,240.32,162,4,36,90.25,0,Enterprise,WhatsApp,Servicio lento y mala atención,1
+640,43,Manta,283.56,8,4,47,87.22,0,Premium,Web,El producto llegó tarde,1
+641,27,Quito,179.0,141,1,57,7.13,0,Basic,WhatsApp,Problemas frecuentes con la plataforma,1
+642,43,Cuenca,215.0,106,1,42,85.43,1,Basic,Store,Excelente experiencia,1
+643,51,Manta,307.79,8,0,53,78.16,0,Basic,Web,Servicio lento y mala atención,1
+644,68,Quito,220.17,96,3,4,10.35,1,Premium,WhatsApp,El producto llegó tarde,1
+645,58,Manta,388.16,94,1,12,10.74,0,Basic,Web,Problemas frecuentes con la plataforma,1
+646,24,Guayaquil,218.03,65,6,27,10.12,1,Basic,Web,Excelente experiencia,1
+647,21,Guayaquil,267.97,171,1,42,1.13,0,Basic,WhatsApp,Servicio lento y mala atención,1
+648,70,Quito,324.61,39,1,24,54.86,0,Enterprise,Store,Problemas frecuentes con la plataforma,0
+649,67,Cuenca,136.53,81,3,50,97.34,1,Premium,WhatsApp,Muy satisfecho con el soporte,0
+650,62,Quito,109.14,84,3,34,43.87,0,Enterprise,Call Center,Atención rápida y eficiente,0
+651,28,Manta,127.95,88,0,46,54.08,1,Enterprise,Call Center,Buen precio y calidad,1
+652,46,Cuenca,351.01,86,2,38,96.8,0,Premium,WhatsApp,Buen precio y calidad,0
+653,73,Guayaquil,205.85,93,1,6,25.52,0,Enterprise,Store,Excelente experiencia,1
+654,53,Cuenca,454.66,86,3,37,85.85,1,Basic,Call Center,Excelente experiencia,0
+655,42,Guayaquil,204.86,44,1,31,54.64,0,Basic,Call Center,Problemas frecuentes con la plataforma,0
+656,38,Cuenca,264.76,137,3,2,56.95,1,Basic,WhatsApp,Servicio lento y mala atención,0
+657,74,Cuenca,373.37,165,5,44,34.32,0,Basic,WhatsApp,Buen precio y calidad,1
+658,53,Cuenca,410.49,74,0,38,56.16,0,Premium,WhatsApp,Excelente experiencia,1
+659,27,Manta,414.92,36,1,36,7.31,0,Enterprise,Web,El producto llegó tarde,1
+660,54,Manta,346.67,101,2,54,76.46,0,Enterprise,Web,Excelente experiencia,1
+661,26,Quito,331.93,156,1,49,28.47,0,Basic,Web,Buen precio y calidad,1
+662,41,Quito,297.4,170,5,21,88.76,0,Basic,WhatsApp,No volvería a comprar,1
+663,52,Guayaquil,312.27,171,1,7,36.79,0,Enterprise,Store,Atención rápida y eficiente,0
+664,66,Manta,205.91,170,3,16,14.28,1,Premium,Call Center,Buen precio y calidad,1
+665,52,Guayaquil,184.54,104,2,51,69.59,0,Enterprise,Web,El producto llegó tarde,1
+666,65,Quito,249.73,66,2,26,16.46,0,Basic,Store,Servicio lento y mala atención,1
+667,53,Guayaquil,236.39,55,0,32,75.37,0,Basic,WhatsApp,El producto llegó tarde,0
+668,35,Quito,213.74,176,2,45,96.81,1,Premium,Web,No volvería a comprar,1
+669,66,Manta,305.71,91,2,16,77.96,1,Enterprise,WhatsApp,No volvería a comprar,0
+670,56,Cuenca,326.42,22,4,41,2.24,0,Premium,Store,Excelente experiencia,1
+671,49,Manta,257.07,101,0,11,59.99,0,Premium,Web,Excelente experiencia,0
+672,41,Guayaquil,368.2,155,3,47,69.54,0,Basic,Web,Buen precio y calidad,1
+673,40,Guayaquil,158.66,121,3,45,82.55,1,Enterprise,Web,Muy satisfecho con el soporte,1
+674,49,Manta,234.51,93,3,26,5.6,0,Basic,Web,Atención rápida y eficiente,1
+675,54,Manta,192.65,108,2,47,48.01,1,Enterprise,Store,El producto llegó tarde,1
+676,29,Quito,100.68,141,0,7,53.54,0,Basic,Web,Buen precio y calidad,0
+677,66,Guayaquil,243.39,173,2,22,16.91,1,Basic,Call Center,Muy satisfecho con el soporte,0
+678,72,Guayaquil,240.26,10,2,59,32.24,1,Enterprise,Call Center,Buen precio y calidad,0
+679,30,Manta,371.08,9,1,41,44.02,0,Enterprise,WhatsApp,Atención rápida y eficiente,0
+680,40,Cuenca,300.46,155,0,48,83.32,0,Basic,Web,Atención rápida y eficiente,1
+681,42,Guayaquil,168.07,34,0,58,92.94,0,Enterprise,Call Center,No volvería a comprar,0
+682,52,Cuenca,398.33,129,1,28,62.84,0,Basic,Call Center,Excelente experiencia,1
+683,58,Manta,347.68,160,0,49,39.49,0,Enterprise,Call Center,Excelente experiencia,1
+684,47,Manta,296.57,89,2,19,25.4,0,Basic,Store,Atención rápida y eficiente,1
+685,34,Quito,231.88,93,1,15,98.21,0,Basic,Web,Buen precio y calidad,0
+686,66,Guayaquil,173.24,71,3,16,98.3,1,Basic,Store,Atención rápida y eficiente,0
+687,37,Cuenca,220.22,67,1,15,92.5,0,Premium,Store,Excelente experiencia,0
+688,65,Quito,337.1,148,1,18,78.57,0,Enterprise,Call Center,Servicio lento y mala atención,1
+689,42,Guayaquil,400.77,117,6,55,32.58,1,Basic,Call Center,Buen precio y calidad,1
+690,39,Quito,373.46,94,3,55,81.7,0,Premium,WhatsApp,No volvería a comprar,1
+691,30,Manta,210.89,163,1,7,40.88,0,Basic,Web,Problemas frecuentes con la plataforma,0
+692,36,Guayaquil,160.43,99,1,37,32.68,0,Premium,Web,Buen precio y calidad,1
+693,66,Quito,261.27,113,4,37,74.49,0,Basic,Call Center,Buen precio y calidad,1
+694,53,Quito,108.52,103,3,52,7.97,1,Basic,Call Center,Excelente experiencia,1
+695,29,Cuenca,275.85,91,0,28,4.86,1,Premium,Web,No volvería a comprar,1
+696,58,Quito,238.19,90,0,40,44.8,0,Premium,WhatsApp,Buen precio y calidad,0
+697,36,Guayaquil,212.72,17,3,35,44.56,0,Enterprise,Call Center,Excelente experiencia,0
+698,29,Guayaquil,122.42,18,3,25,89.56,1,Enterprise,WhatsApp,Atención rápida y eficiente,0
+699,26,Cuenca,291.09,173,4,30,12.62,0,Premium,Store,El producto llegó tarde,1
+700,24,Guayaquil,207.38,116,2,43,12.33,1,Enterprise,Call Center,No volvería a comprar,1
+701,45,Manta,156.41,93,1,59,14.75,1,Premium,Store,Muy satisfecho con el soporte,0
+702,31,Guayaquil,20.22,91,4,11,2.97,1,Enterprise,Call Center,Servicio lento y mala atención,1
+703,48,Guayaquil,247.8,82,2,54,7.17,0,Basic,Store,Muy satisfecho con el soporte,1
+704,69,Quito,391.78,68,1,16,65.99,0,Enterprise,Call Center,Problemas frecuentes con la plataforma,0
+705,36,Quito,382.9,114,2,14,43.16,0,Basic,WhatsApp,Atención rápida y eficiente,0
+706,64,Guayaquil,213.43,1,2,8,76.36,1,Basic,WhatsApp,No volvería a comprar,0
+707,33,Cuenca,201.82,58,2,38,99.26,0,Enterprise,WhatsApp,Buen precio y calidad,0
+708,70,Quito,287.5,154,1,41,65.9,0,Premium,Store,Excelente experiencia,1
+709,22,Cuenca,170.13,109,0,47,5.05,1,Basic,WhatsApp,Problemas frecuentes con la plataforma,1
+710,52,Guayaquil,274.14,148,3,11,10.46,0,Basic,Store,No volvería a comprar,1
+711,29,Guayaquil,311.29,116,4,31,88.1,0,Enterprise,Call Center,Servicio lento y mala atención,1
+712,42,Manta,348.15,87,6,24,52.75,0,Premium,Store,No volvería a comprar,1
+713,69,Quito,241.99,10,4,38,82.48,1,Premium,Call Center,Problemas frecuentes con la plataforma,1
+714,38,Guayaquil,233.71,59,2,17,85.66,0,Enterprise,Web,Excelente experiencia,0
+715,53,Manta,179.76,41,1,14,92.77,1,Premium,Web,Muy satisfecho con el soporte,0
+716,70,Quito,183.85,105,4,31,94.98,1,Enterprise,Web,El producto llegó tarde,1
+717,40,Guayaquil,231.88,133,2,5,55.48,1,Enterprise,Store,Muy satisfecho con el soporte,0
+718,33,Guayaquil,279.39,122,3,57,34.1,0,Enterprise,Web,Excelente experiencia,1
+719,74,Quito,323.09,145,2,43,96.19,0,Basic,Web,Problemas frecuentes con la plataforma,1
+720,56,Quito,185.75,22,3,42,54.74,0,Basic,Web,Excelente experiencia,0
+721,62,Quito,369.42,98,0,51,6.43,1,Basic,Call Center,Atención rápida y eficiente,1
+722,70,Guayaquil,228.31,169,2,34,64.28,1,Enterprise,WhatsApp,Servicio lento y mala atención,1
+723,59,Guayaquil,248.29,68,2,33,58.77,0,Basic,Store,No volvería a comprar,0
+724,56,Manta,190.22,139,2,37,89.58,1,Basic,Web,Atención rápida y eficiente,1
+725,31,Cuenca,56.06,56,3,55,65.32,0,Basic,Call Center,No volvería a comprar,0
+726,48,Quito,320.72,179,2,53,34.91,0,Enterprise,WhatsApp,Muy satisfecho con el soporte,1
+727,22,Guayaquil,308.95,149,2,56,96.62,0,Enterprise,WhatsApp,Problemas frecuentes con la plataforma,1
+728,52,Guayaquil,227.49,99,3,4,80.16,0,Enterprise,WhatsApp,El producto llegó tarde,0
+729,40,Quito,255.36,76,5,17,63.04,0,Basic,Call Center,El producto llegó tarde,0
+730,46,Cuenca,291.28,26,3,15,29.29,0,Premium,Web,Servicio lento y mala atención,0
+731,60,Quito,125.0,115,0,7,37.35,0,Basic,WhatsApp,Excelente experiencia,0
+732,28,Cuenca,207.68,147,2,24,67.0,1,Basic,Call Center,Servicio lento y mala atención,1
+733,35,Guayaquil,313.54,109,3,31,7.2,0,Enterprise,Call Center,No volvería a comprar,1
+734,64,Cuenca,149.66,47,2,25,25.67,1,Enterprise,Store,Buen precio y calidad,0
+735,29,Manta,273.48,71,3,51,71.39,1,Basic,Call Center,Buen precio y calidad,0
+736,26,Guayaquil,141.47,154,2,21,48.0,0,Basic,WhatsApp,Buen precio y calidad,1
+737,27,Manta,287.31,40,0,30,40.24,1,Premium,WhatsApp,Excelente experiencia,0
+738,61,Quito,247.15,133,2,42,15.15,1,Premium,Call Center,Servicio lento y mala atención,0
+739,34,Quito,120.79,149,1,9,44.18,1,Enterprise,WhatsApp,Atención rápida y eficiente,0
+740,55,Quito,343.18,132,2,55,77.07,0,Premium,Call Center,Problemas frecuentes con la plataforma,1
+741,24,Cuenca,191.23,23,2,56,26.4,0,Premium,WhatsApp,Muy satisfecho con el soporte,1
+742,63,Guayaquil,185.18,106,4,11,0.54,0,Enterprise,Store,No volvería a comprar,1
+743,30,Quito,266.05,84,0,52,66.85,0,Premium,Web,Buen precio y calidad,0
+744,57,Quito,341.89,143,2,27,97.26,0,Basic,Store,Problemas frecuentes con la plataforma,1
+745,59,Guayaquil,168.73,116,0,5,60.68,1,Premium,Store,El producto llegó tarde,0
+746,26,Quito,254.93,109,0,58,11.99,1,Enterprise,Web,Atención rápida y eficiente,1
+747,67,Manta,284.31,136,1,19,32.07,0,Basic,WhatsApp,Servicio lento y mala atención,0
+748,44,Guayaquil,305.45,41,2,4,86.76,1,Premium,Web,No volvería a comprar,0
+749,19,Guayaquil,264.12,112,0,22,23.26,1,Basic,Call Center,No volvería a comprar,1
+750,22,Guayaquil,220.64,147,1,8,60.77,1,Basic,Web,El producto llegó tarde,0
+751,46,Manta,183.79,112,4,57,40.27,1,Premium,Store,Atención rápida y eficiente,1
+752,54,Guayaquil,256.89,103,3,58,20.78,0,Premium,Web,El producto llegó tarde,1
+753,55,Manta,164.23,46,4,28,81.34,0,Enterprise,WhatsApp,El producto llegó tarde,1
+754,36,Guayaquil,16.29,156,2,15,74.28,0,Enterprise,Store,Buen precio y calidad,0
+755,25,Cuenca,284.92,68,2,53,66.16,1,Basic,Call Center,Atención rápida y eficiente,0
+756,65,Quito,322.31,122,2,45,23.63,1,Enterprise,WhatsApp,Buen precio y calidad,1
+757,62,Cuenca,60.97,15,1,21,9.79,0,Basic,Store,Servicio lento y mala atención,1
+758,18,Quito,169.22,165,1,7,57.62,0,Basic,Call Center,El producto llegó tarde,0
+759,39,Manta,299.53,129,1,58,55.37,1,Enterprise,WhatsApp,Muy satisfecho con el soporte,1
+760,69,Cuenca,414.6,111,1,19,18.84,0,Enterprise,Call Center,No volvería a comprar,1
+761,34,Guayaquil,251.66,24,3,50,5.62,0,Enterprise,Web,Atención rápida y eficiente,1
+762,24,Quito,191.76,27,2,13,8.07,1,Premium,Web,El producto llegó tarde,0
+763,42,Quito,235.37,40,2,38,99.28,1,Basic,Call Center,Atención rápida y eficiente,0
+764,62,Cuenca,359.99,164,2,36,78.36,0,Basic,Web,No volvería a comprar,1
+765,21,Manta,198.32,24,0,49,92.2,1,Basic,Call Center,Excelente experiencia,1
+766,53,Cuenca,186.06,24,1,33,19.51,0,Enterprise,WhatsApp,Problemas frecuentes con la plataforma,1
+767,23,Manta,211.38,4,4,10,96.06,1,Enterprise,Store,Excelente experiencia,0
+768,48,Manta,173.73,67,2,53,14.27,1,Enterprise,Call Center,El producto llegó tarde,1
+769,36,Quito,259.81,34,4,39,50.91,0,Enterprise,Store,No volvería a comprar,1
+770,61,Cuenca,379.97,177,4,32,82.97,1,Enterprise,Store,Problemas frecuentes con la plataforma,1
+771,71,Cuenca,275.85,116,2,30,34.98,0,Premium,Call Center,Excelente experiencia,0
+772,56,Manta,229.81,23,1,58,42.48,1,Enterprise,Web,El producto llegó tarde,0
+773,44,Cuenca,226.66,109,3,53,12.82,0,Basic,WhatsApp,No volvería a comprar,1
+774,27,Guayaquil,124.94,69,3,43,12.29,1,Enterprise,Store,El producto llegó tarde,1
+775,43,Guayaquil,320.65,95,1,33,61.96,1,Basic,WhatsApp,Buen precio y calidad,1
+776,36,Cuenca,243.77,62,1,49,67.55,0,Enterprise,Store,No volvería a comprar,0
+777,56,Cuenca,235.56,169,4,6,77.73,1,Enterprise,Call Center,Excelente experiencia,1
+778,20,Manta,505.45,57,1,57,55.67,0,Basic,Web,El producto llegó tarde,0
+779,62,Guayaquil,273.9,54,4,48,64.58,1,Basic,WhatsApp,Atención rápida y eficiente,1
+780,30,Guayaquil,189.86,70,0,53,1.35,1,Basic,Store,Excelente experiencia,1
+781,67,Quito,215.89,101,3,22,16.22,0,Basic,Call Center,El producto llegó tarde,1
+782,45,Manta,341.88,57,3,45,98.49,1,Premium,Call Center,Atención rápida y eficiente,0
+783,37,Quito,259.06,138,3,55,7.6,1,Basic,Store,Atención rápida y eficiente,1
+784,45,Guayaquil,134.94,168,2,6,67.88,0,Enterprise,Store,Servicio lento y mala atención,0
+785,25,Manta,323.54,135,1,53,17.61,1,Enterprise,Store,Atención rápida y eficiente,1
+786,58,Cuenca,196.55,103,0,24,71.67,0,Premium,Web,Excelente experiencia,1
+787,56,Manta,399.86,166,2,2,70.6,0,Basic,Store,Excelente experiencia,0
+788,18,Cuenca,336.4,85,2,58,23.42,0,Enterprise,Store,Muy satisfecho con el soporte,1
+789,20,Cuenca,214.21,61,2,37,26.96,1,Premium,Web,Problemas frecuentes con la plataforma,1
+790,30,Manta,352.48,3,3,19,65.48,1,Enterprise,Call Center,Buen precio y calidad,0
+791,45,Cuenca,255.43,128,3,33,39.01,0,Premium,Store,Excelente experiencia,1
+792,74,Quito,318.22,179,1,48,19.45,1,Premium,WhatsApp,No volvería a comprar,1
+793,66,Guayaquil,288.78,86,2,43,73.17,0,Basic,Call Center,Problemas frecuentes con la plataforma,0
+794,42,Cuenca,182.29,47,1,43,15.41,1,Premium,WhatsApp,Atención rápida y eficiente,1
+795,73,Quito,198.52,76,2,29,85.56,0,Enterprise,Store,El producto llegó tarde,0
+796,50,Cuenca,332.4,38,0,16,51.47,0,Enterprise,Web,Servicio lento y mala atención,1
+797,55,Guayaquil,223.22,164,1,58,10.57,1,Basic,Web,No volvería a comprar,0
+798,70,Quito,217.71,169,1,9,69.41,0,Basic,Web,Problemas frecuentes con la plataforma,0
+799,23,Guayaquil,173.59,141,2,34,51.92,0,Premium,Store,No volvería a comprar,0
+800,61,Guayaquil,283.89,87,1,19,29.81,1,Basic,Store,No volvería a comprar,0
+801,62,Quito,415.0,58,1,17,42.25,0,Enterprise,WhatsApp,No volvería a comprar,0
+802,49,Quito,164.6,50,2,44,29.83,0,Enterprise,Web,Problemas frecuentes con la plataforma,1
+803,62,Quito,251.94,30,4,43,26.3,1,Basic,Store,Servicio lento y mala atención,1
+804,64,Manta,362.98,101,0,26,16.36,0,Basic,Call Center,Atención rápida y eficiente,1
+805,38,Quito,243.63,25,1,58,36.28,0,Basic,Store,Muy satisfecho con el soporte,0
+806,33,Quito,286.19,112,4,58,25.1,0,Premium,Store,Buen precio y calidad,1
+807,71,Quito,165.01,155,2,48,68.34,0,Premium,Call Center,Atención rápida y eficiente,1
+808,38,Quito,284.26,179,1,35,68.39,0,Enterprise,Web,Excelente experiencia,1
+809,28,Cuenca,235.03,126,1,22,50.18,0,Premium,Call Center,Problemas frecuentes con la plataforma,1
+810,54,Manta,328.86,123,3,31,77.79,0,Premium,Web,No volvería a comprar,1
+811,53,Guayaquil,344.99,47,1,9,84.13,0,Premium,Call Center,Atención rápida y eficiente,0
+812,52,Quito,457.17,118,3,10,57.98,1,Premium,WhatsApp,Excelente experiencia,0
+813,36,Cuenca,296.37,39,3,37,61.89,0,Enterprise,Web,Problemas frecuentes con la plataforma,0
+814,37,Cuenca,276.06,16,2,5,28.29,0,Basic,Store,Excelente experiencia,0
+815,74,Cuenca,265.55,22,2,58,89.49,1,Enterprise,WhatsApp,No volvería a comprar,0
+816,35,Guayaquil,221.75,54,4,40,2.42,0,Premium,Web,Muy satisfecho con el soporte,1
+817,64,Quito,277.08,149,1,46,34.86,0,Basic,Web,Problemas frecuentes con la plataforma,1
+818,58,Manta,226.37,16,1,33,72.18,0,Basic,Web,Excelente experiencia,0
+819,66,Manta,263.48,59,2,35,8.01,0,Basic,Call Center,El producto llegó tarde,1
+820,31,Cuenca,355.41,31,1,36,18.32,0,Enterprise,Web,Excelente experiencia,1
+821,32,Guayaquil,169.48,170,3,16,58.93,0,Basic,Store,Buen precio y calidad,1
+822,48,Guayaquil,341.19,32,3,39,56.0,1,Enterprise,Web,No volvería a comprar,0
+823,18,Guayaquil,355.37,162,4,39,73.89,1,Enterprise,Store,Servicio lento y mala atención,1
+824,70,Manta,240.55,9,1,53,81.26,1,Premium,Store,Excelente experiencia,0
+825,71,Cuenca,80.25,139,1,11,12.86,1,Premium,Store,Muy satisfecho con el soporte,1
+826,71,Quito,201.37,10,1,20,1.84,1,Basic,WhatsApp,El producto llegó tarde,0
+827,20,Manta,353.76,17,1,39,68.96,0,Basic,Store,El producto llegó tarde,0
+828,33,Cuenca,248.17,68,2,18,30.14,0,Premium,Call Center,Servicio lento y mala atención,0
+829,40,Cuenca,170.06,48,0,2,62.6,0,Enterprise,Web,Atención rápida y eficiente,1
+830,74,Quito,209.62,111,1,17,15.05,0,Enterprise,Call Center,Buen precio y calidad,1
+831,28,Quito,317.25,153,2,52,46.9,0,Premium,WhatsApp,Servicio lento y mala atención,1
+832,29,Quito,293.74,123,4,50,50.44,1,Enterprise,Web,Buen precio y calidad,0
+833,27,Guayaquil,230.89,149,0,18,58.51,1,Premium,Store,Excelente experiencia,0
+834,49,Quito,220.65,101,0,46,51.32,0,Premium,Web,No volvería a comprar,1
+835,33,Cuenca,218.66,102,1,5,49.57,0,Basic,WhatsApp,Muy satisfecho con el soporte,0
+836,25,Quito,176.21,65,1,15,33.27,0,Basic,WhatsApp,El producto llegó tarde,0
+837,55,Cuenca,379.23,51,4,7,7.12,1,Premium,Call Center,Servicio lento y mala atención,1
+838,29,Manta,224.21,36,2,47,8.95,1,Basic,Web,Muy satisfecho con el soporte,1
+839,41,Guayaquil,347.37,81,2,17,43.38,0,Premium,Web,Buen precio y calidad,1
+840,45,Manta,371.71,127,2,51,35.58,1,Enterprise,Web,No volvería a comprar,1
+841,70,Manta,329.86,88,5,47,51.61,0,Enterprise,Call Center,El producto llegó tarde,1
+842,25,Cuenca,215.47,104,3,42,30.48,1,Enterprise,WhatsApp,El producto llegó tarde,1
+843,45,Manta,282.3,15,4,38,68.79,1,Enterprise,Store,Buen precio y calidad,1
+844,53,Cuenca,248.06,96,3,48,86.4,0,Premium,Web,No volvería a comprar,1
+845,43,Quito,177.7,167,0,48,29.89,1,Enterprise,Call Center,El producto llegó tarde,0
+846,25,Quito,275.95,123,3,11,19.3,1,Enterprise,Call Center,No volvería a comprar,1
+847,67,Cuenca,155.68,1,2,44,11.62,0,Enterprise,Store,El producto llegó tarde,1
+848,45,Quito,345.01,151,3,9,61.63,1,Enterprise,WhatsApp,Excelente experiencia,0
+849,45,Guayaquil,212.83,122,3,6,44.39,0,Premium,Web,Buen precio y calidad,0
+850,54,Manta,266.09,167,1,45,18.8,1,Enterprise,Web,No volvería a comprar,1
+851,58,Guayaquil,272.66,126,1,54,65.31,0,Basic,Call Center,Muy satisfecho con el soporte,1
+852,53,Manta,229.29,57,4,0,14.85,0,Basic,WhatsApp,Atención rápida y eficiente,1
+853,44,Quito,296.94,81,0,48,55.43,1,Basic,Web,Excelente experiencia,0
+854,71,Guayaquil,212.01,162,2,35,52.71,1,Basic,Store,Problemas frecuentes con la plataforma,1
+855,34,Quito,319.7,169,3,20,73.42,0,Basic,WhatsApp,Muy satisfecho con el soporte,0
+856,26,Manta,142.32,73,1,36,5.51,1,Basic,WhatsApp,Buen precio y calidad,1
+857,50,Cuenca,260.11,141,0,51,88.79,1,Premium,Call Center,El producto llegó tarde,1
+858,70,Cuenca,405.11,70,3,23,70.3,1,Basic,Call Center,Problemas frecuentes con la plataforma,0
+859,37,Guayaquil,169.97,6,2,54,21.61,0,Enterprise,Web,Muy satisfecho con el soporte,1
+860,30,Quito,195.78,84,1,24,18.34,0,Basic,Call Center,Excelente experiencia,1
+861,45,Quito,291.11,52,2,6,43.17,0,Premium,WhatsApp,Problemas frecuentes con la plataforma,0
+862,65,Guayaquil,264.37,3,1,41,81.76,1,Basic,Web,Problemas frecuentes con la plataforma,0
+863,46,Cuenca,278.05,81,0,16,84.29,1,Enterprise,Web,No volvería a comprar,0
+864,30,Manta,289.13,63,2,28,52.05,0,Enterprise,WhatsApp,Servicio lento y mala atención,0
+865,63,Guayaquil,300.78,49,0,29,86.08,0,Premium,Web,Muy satisfecho con el soporte,0
+866,52,Manta,338.78,76,3,6,0.54,1,Premium,Store,Servicio lento y mala atención,0
+867,23,Cuenca,282.79,112,2,32,3.52,1,Premium,Store,Buen precio y calidad,1
+868,35,Quito,230.7,175,4,6,91.18,1,Premium,Web,Muy satisfecho con el soporte,1
+869,68,Cuenca,303.81,109,1,57,77.53,1,Basic,Call Center,Muy satisfecho con el soporte,1
+870,22,Guayaquil,401.99,65,0,23,45.07,0,Basic,Store,No volvería a comprar,0
+871,64,Quito,239.39,81,0,10,75.36,1,Enterprise,Web,El producto llegó tarde,0
+872,42,Guayaquil,172.04,15,4,8,95.56,1,Premium,Store,Excelente experiencia,0
+873,19,Guayaquil,338.57,100,0,11,77.21,0,Premium,Call Center,Excelente experiencia,1
+874,27,Cuenca,240.37,32,5,34,84.24,0,Basic,WhatsApp,Excelente experiencia,1
+875,73,Guayaquil,76.19,96,0,3,76.06,1,Premium,Web,Atención rápida y eficiente,0
+876,47,Cuenca,317.79,128,3,35,16.82,0,Enterprise,Web,Buen precio y calidad,1
+877,67,Quito,207.17,146,2,27,83.36,1,Enterprise,Web,Problemas frecuentes con la plataforma,1
+878,62,Cuenca,242.76,113,1,56,19.51,1,Premium,Web,El producto llegó tarde,1
+879,22,Quito,276.56,83,1,12,89.26,0,Enterprise,Web,Servicio lento y mala atención,0
+880,72,Cuenca,265.24,43,1,22,45.86,0,Enterprise,Web,Excelente experiencia,0
+881,73,Manta,306.76,116,2,18,67.7,1,Basic,Call Center,Atención rápida y eficiente,0
+882,50,Manta,215.16,163,3,41,49.72,0,Enterprise,WhatsApp,Servicio lento y mala atención,1
+883,71,Guayaquil,291.05,78,2,36,9.4,1,Premium,Call Center,El producto llegó tarde,1
+884,18,Cuenca,229.24,58,3,38,29.07,1,Premium,Call Center,Buen precio y calidad,1
+885,35,Cuenca,309.1,33,3,23,98.37,1,Enterprise,WhatsApp,El producto llegó tarde,0
+886,49,Quito,299.23,14,1,15,96.07,0,Premium,Call Center,No volvería a comprar,0
+887,64,Guayaquil,175.16,162,2,32,32.05,1,Basic,Store,Problemas frecuentes con la plataforma,1
+888,66,Cuenca,336.88,132,2,11,99.63,1,Enterprise,Call Center,Excelente experiencia,1
+889,28,Guayaquil,207.12,59,2,33,84.56,1,Enterprise,Web,Buen precio y calidad,0
+890,38,Manta,314.64,157,4,6,61.1,0,Enterprise,Store,No volvería a comprar,1
+891,43,Cuenca,279.38,83,1,10,4.01,1,Premium,Store,Excelente experiencia,0
+892,42,Cuenca,397.05,134,0,30,90.14,1,Premium,WhatsApp,El producto llegó tarde,1
+893,39,Guayaquil,232.12,121,1,28,55.74,1,Enterprise,Call Center,El producto llegó tarde,1
+894,44,Cuenca,222.05,177,2,12,86.85,0,Premium,Call Center,Atención rápida y eficiente,0
+895,66,Guayaquil,248.45,168,0,30,83.44,1,Premium,Store,Muy satisfecho con el soporte,1
+896,30,Cuenca,225.75,83,1,1,83.3,1,Enterprise,Call Center,Muy satisfecho con el soporte,0
+897,50,Quito,314.0,27,0,38,69.82,0,Enterprise,Call Center,El producto llegó tarde,0
+898,51,Guayaquil,120.7,80,2,14,29.14,0,Premium,WhatsApp,El producto llegó tarde,0
+899,58,Cuenca,165.71,134,2,56,33.62,1,Enterprise,Store,Servicio lento y mala atención,1
+900,52,Manta,164.58,13,3,10,30.85,1,Enterprise,Web,Atención rápida y eficiente,0
+901,18,Cuenca,326.02,64,0,33,2.0,1,Enterprise,Store,Problemas frecuentes con la plataforma,1
+902,38,Manta,386.85,147,5,38,58.26,0,Enterprise,WhatsApp,Servicio lento y mala atención,1
+903,65,Manta,241.64,80,5,3,69.88,0,Premium,WhatsApp,Problemas frecuentes con la plataforma,0
+904,72,Quito,236.49,123,1,10,85.39,1,Enterprise,WhatsApp,No volvería a comprar,0
+905,23,Guayaquil,255.6,43,4,28,14.02,0,Basic,Call Center,Muy satisfecho con el soporte,1
+906,45,Cuenca,342.95,89,2,1,54.42,1,Enterprise,Store,Muy satisfecho con el soporte,0
+907,34,Quito,175.81,148,3,15,0.8,1,Basic,Call Center,Atención rápida y eficiente,1
+908,22,Cuenca,269.07,95,2,38,9.51,0,Enterprise,Call Center,El producto llegó tarde,0
+909,48,Manta,328.02,172,3,12,5.42,1,Basic,Store,El producto llegó tarde,1
+910,22,Guayaquil,290.09,151,2,36,72.55,0,Basic,WhatsApp,No volvería a comprar,1
+911,55,Cuenca,265.17,2,2,16,8.11,0,Enterprise,Web,Buen precio y calidad,0
+912,20,Cuenca,330.08,120,2,20,71.65,1,Enterprise,Web,Buen precio y calidad,0
+913,70,Manta,33.74,22,2,43,24.96,0,Enterprise,Store,Atención rápida y eficiente,1
+914,40,Cuenca,304.23,115,0,59,87.77,1,Basic,Store,Buen precio y calidad,0
+915,54,Cuenca,197.67,57,4,18,81.31,0,Premium,WhatsApp,Muy satisfecho con el soporte,0
+916,70,Manta,103.55,72,4,6,95.78,1,Premium,Store,Servicio lento y mala atención,0
+917,54,Quito,290.9,7,1,37,88.38,1,Enterprise,Store,Buen precio y calidad,0
+918,27,Manta,359.89,119,3,7,93.33,1,Premium,WhatsApp,Excelente experiencia,0
+919,27,Quito,239.0,114,0,12,85.87,0,Premium,WhatsApp,Atención rápida y eficiente,0
+920,36,Guayaquil,326.23,16,2,36,69.34,1,Enterprise,Call Center,No volvería a comprar,0
+921,34,Quito,378.98,83,0,1,17.03,0,Basic,Store,Buen precio y calidad,0
+922,38,Quito,355.19,179,3,40,27.17,0,Enterprise,Web,Excelente experiencia,1
+923,31,Guayaquil,381.2,72,2,10,21.27,0,Premium,Store,Buen precio y calidad,0
+924,26,Quito,309.37,124,1,23,60.36,0,Basic,Web,Servicio lento y mala atención,1
+925,63,Manta,256.03,113,0,5,50.36,0,Premium,Web,Servicio lento y mala atención,0
+926,18,Quito,121.84,12,0,25,86.71,1,Basic,Web,Buen precio y calidad,0
+927,68,Guayaquil,230.32,126,4,6,95.27,0,Premium,Call Center,Atención rápida y eficiente,1
+928,62,Manta,182.54,53,2,56,40.49,1,Enterprise,WhatsApp,Atención rápida y eficiente,0
+929,30,Guayaquil,423.68,75,2,38,50.64,1,Premium,WhatsApp,Excelente experiencia,0
+930,21,Guayaquil,235.93,133,3,18,97.15,0,Premium,Call Center,No volvería a comprar,0
+931,18,Cuenca,259.86,27,5,5,27.62,1,Basic,WhatsApp,Excelente experiencia,1
+932,66,Cuenca,294.12,140,3,42,79.24,1,Premium,Call Center,No volvería a comprar,1
+933,57,Guayaquil,253.49,145,0,28,22.52,0,Enterprise,Store,Buen precio y calidad,1
+934,49,Guayaquil,385.6,134,0,42,68.15,1,Enterprise,Call Center,No volvería a comprar,0
+935,51,Guayaquil,200.19,97,2,38,25.36,0,Enterprise,WhatsApp,El producto llegó tarde,1
+936,45,Cuenca,265.57,5,2,1,88.37,0,Basic,WhatsApp,Muy satisfecho con el soporte,0
+937,48,Cuenca,190.6,57,2,18,56.15,0,Basic,Store,Problemas frecuentes con la plataforma,0
+938,25,Quito,144.4,156,3,3,18.59,1,Premium,Call Center,Muy satisfecho con el soporte,1
+939,56,Quito,201.06,78,0,57,22.44,1,Premium,Store,Servicio lento y mala atención,1
+940,43,Guayaquil,247.04,69,0,5,49.38,1,Premium,Web,El producto llegó tarde,0
+941,51,Manta,215.66,118,3,48,96.16,1,Basic,Call Center,Muy satisfecho con el soporte,1
+942,71,Manta,194.61,120,2,56,76.96,0,Basic,Store,Buen precio y calidad,1
+943,71,Cuenca,137.49,59,3,36,48.83,0,Premium,Store,No volvería a comprar,0
+944,20,Cuenca,243.35,33,1,27,33.77,1,Basic,WhatsApp,No volvería a comprar,0
+945,67,Cuenca,129.62,62,3,29,54.93,0,Basic,Call Center,Excelente experiencia,0
+946,29,Guayaquil,310.8,50,3,6,74.84,1,Enterprise,Web,Excelente experiencia,0
+947,18,Manta,256.6,112,1,8,78.39,0,Enterprise,Web,Atención rápida y eficiente,0
+948,71,Quito,133.4,19,3,24,32.46,0,Premium,Call Center,No volvería a comprar,0
+949,61,Guayaquil,225.26,123,4,32,72.12,0,Premium,Call Center,Atención rápida y eficiente,1
+950,22,Quito,189.83,47,2,0,65.78,0,Enterprise,Store,Buen precio y calidad,0
+951,47,Quito,275.53,167,1,50,95.91,0,Basic,WhatsApp,No volvería a comprar,1
+952,47,Guayaquil,357.24,33,4,5,93.11,1,Premium,WhatsApp,Excelente experiencia,0
+953,74,Quito,99.99,141,1,17,78.94,1,Premium,WhatsApp,Muy satisfecho con el soporte,0
+954,34,Manta,259.2,84,1,9,72.34,0,Premium,Call Center,Atención rápida y eficiente,0
+955,65,Quito,237.19,135,3,27,27.4,1,Basic,WhatsApp,Atención rápida y eficiente,1
+956,64,Manta,303.71,79,1,10,84.6,0,Enterprise,Store,Servicio lento y mala atención,0
+957,40,Manta,267.06,14,4,32,42.75,0,Premium,Call Center,Excelente experiencia,1
+958,32,Manta,189.84,147,3,0,27.22,0,Enterprise,Call Center,Buen precio y calidad,1
+959,54,Cuenca,224.48,128,0,12,38.42,0,Enterprise,WhatsApp,Atención rápida y eficiente,0
+960,38,Quito,186.32,54,2,36,83.59,1,Basic,Web,Muy satisfecho con el soporte,0
+961,31,Guayaquil,336.08,148,3,19,14.86,0,Basic,Web,Muy satisfecho con el soporte,1
+962,19,Guayaquil,251.7,29,2,0,45.62,1,Basic,Store,Muy satisfecho con el soporte,0
+963,28,Quito,402.1,24,1,51,49.24,0,Basic,WhatsApp,El producto llegó tarde,0
+964,68,Cuenca,245.15,82,4,2,3.66,0,Basic,WhatsApp,El producto llegó tarde,1
+965,56,Cuenca,193.33,63,1,17,19.57,1,Basic,Call Center,Problemas frecuentes con la plataforma,0
+966,55,Manta,128.9,105,1,40,82.67,0,Premium,Call Center,Muy satisfecho con el soporte,1
+967,51,Quito,105.75,57,0,13,83.08,0,Enterprise,WhatsApp,Atención rápida y eficiente,0
+968,55,Quito,123.27,136,3,30,29.24,1,Basic,Call Center,Buen precio y calidad,1
+969,67,Guayaquil,271.37,62,0,26,87.49,1,Premium,WhatsApp,No volvería a comprar,0
+970,51,Quito,290.7,157,2,16,77.18,1,Enterprise,Store,Buen precio y calidad,0
+971,35,Cuenca,123.5,17,1,54,41.79,0,Basic,Call Center,El producto llegó tarde,0
+972,47,Quito,321.6,66,1,45,74.84,0,Basic,WhatsApp,Excelente experiencia,0
+973,32,Guayaquil,211.36,6,2,28,96.13,1,Premium,Call Center,Atención rápida y eficiente,0
+974,44,Manta,261.74,58,4,35,45.9,1,Enterprise,Store,Problemas frecuentes con la plataforma,1
+975,68,Guayaquil,378.98,69,4,36,23.84,0,Basic,Call Center,El producto llegó tarde,1
+976,51,Guayaquil,321.75,156,3,25,94.18,0,Enterprise,WhatsApp,No volvería a comprar,1
+977,69,Manta,228.52,62,4,52,60.37,1,Premium,Call Center,Servicio lento y mala atención,1
+978,74,Guayaquil,178.7,169,1,16,10.53,1,Basic,Call Center,Problemas frecuentes con la plataforma,1
+979,55,Guayaquil,77.85,82,2,21,57.27,1,Enterprise,WhatsApp,El producto llegó tarde,0
+980,50,Quito,192.47,169,1,24,50.06,1,Premium,Web,Buen precio y calidad,1
+981,41,Quito,233.11,177,1,1,85.56,0,Premium,Call Center,Problemas frecuentes con la plataforma,0
+982,32,Manta,171.03,177,4,54,53.07,0,Basic,Call Center,Atención rápida y eficiente,1
+983,47,Quito,239.5,71,2,21,25.52,0,Enterprise,Store,Buen precio y calidad,1
+984,72,Quito,256.15,131,0,4,67.56,0,Basic,Web,Muy satisfecho con el soporte,0
+985,59,Guayaquil,232.01,10,3,3,54.26,1,Basic,Store,Muy satisfecho con el soporte,0
+986,68,Cuenca,198.0,98,1,35,23.3,0,Enterprise,WhatsApp,Muy satisfecho con el soporte,1
+987,34,Quito,263.49,89,2,5,57.36,1,Enterprise,WhatsApp,Problemas frecuentes con la plataforma,0
+988,22,Cuenca,285.36,35,2,51,82.15,0,Enterprise,Store,Servicio lento y mala atención,0
+989,46,Quito,162.77,2,0,20,2.86,0,Premium,Call Center,No volvería a comprar,1
+990,21,Quito,362.87,124,2,12,63.09,0,Premium,Web,Atención rápida y eficiente,0
+991,27,Manta,242.11,24,5,53,34.96,1,Enterprise,Store,Problemas frecuentes con la plataforma,1
+992,73,Manta,251.51,74,2,36,29.27,0,Premium,Store,Excelente experiencia,1
+993,34,Manta,306.66,166,3,54,39.26,1,Basic,WhatsApp,Atención rápida y eficiente,1
+994,27,Cuenca,268.66,22,0,24,34.2,1,Enterprise,Call Center,Buen precio y calidad,0
+995,34,Guayaquil,326.25,154,2,25,83.22,0,Basic,Web,Buen precio y calidad,1
+996,37,Quito,272.97,171,1,54,27.48,1,Enterprise,Store,Problemas frecuentes con la plataforma,1
+997,41,Quito,201.01,39,3,38,73.32,0,Basic,Web,Problemas frecuentes con la plataforma,0
+998,22,Quito,278.92,157,2,19,9.41,1,Enterprise,Web,No volvería a comprar,1
+999,51,Cuenca,158.5,20,1,32,95.14,0,Basic,Store,Servicio lento y mala atención,0
+1000,23,Manta,258.68,41,2,13,62.23,1,Enterprise,Web,Problemas frecuentes con la plataforma,0
